@@ -1,0 +1,1789 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Se acabó el «búscalo arriba». Trabajos, alquileres, ventas, servicios y recomendadas de la comunidad latina en Turquía, ordenadas y a mano.">
+<meta property="og:title" content="Tu.turquía · A la mano">
+<meta property="og:description" content="Las oportunidades de la comunidad latina en Turquía, ordenadas y a mano. Que no se pierdan a 381 mensajes de distancia.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#00757C">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Tu.turquía</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one mobile-first column, a community board that reads like a feed; publishing lives in a bottom sheet. */
+:root {
+  --bg: #F2FAFA;
+  --surface: #FFFFFF;
+  --surface-2: #E3F2F2;
+  --ink: #0B2B30;
+  --muted: #4F6B6E;
+  --line: #D3E6E6;
+  --accent: #00757C;      /* turquesa profundo */
+  --accent-ink: #FFFFFF;
+  --sun: #FF7A59;         /* coral granada (nar) */
+  --sun-ink: #0B2B30;     /* texto sobre coral, en ambos temas */
+  --sun-soft: #FFE9E2;
+  --hl: #FF7A59;          /* subrayado de marcador del título */
+  --c-trabajo: #00757C;
+  --c-alquiler: #1C4FD8;  /* azul İznik */
+  --c-venta: #A8560A;
+  --c-servicio: #B0307A;
+  --c-trabajo-bg: #DDF1F2;
+  --c-alquiler-bg: #E4EBFC;
+  --c-venta-bg: #FCEBD6;
+  --c-servicio-bg: #F9E1EE;
+  --danger: #B42318;
+  --ok: #0B8073;
+  --shadow: 0 1px 2px rgba(22,31,69,.06), 0 8px 24px rgba(22,31,69,.07);
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 14px;
+  --chat-bg: #E1EFEF;
+  --bubble-me: #D3F0EE;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1E21; --surface: #12292D; --surface-2: #1A353A; --ink: #E9F6F6; --muted: #9DBDBF; --line: #24454A;
+    --accent: #4FD6D6; --accent-ink: #0B1E21; --sun: #FF8A6B; --sun-soft: #3D2219; --hl: rgba(255,138,107,.4);
+    --c-trabajo: #4FD6D6; --c-alquiler: #8FB0FF; --c-venta: #F2A85C; --c-servicio: #F08BC0;
+    --c-trabajo-bg: #123E42; --c-alquiler-bg: #1F2E5A; --c-venta-bg: #43301A; --c-servicio-bg: #44223A;
+    --danger: #FF8A7E; --ok: #4FD1BF; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    --chat-bg: #0F2629; --bubble-me: #17423F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1E21; --surface: #12292D; --surface-2: #1A353A; --ink: #E9F6F6; --muted: #9DBDBF; --line: #24454A;
+  --accent: #4FD6D6; --accent-ink: #0B1E21; --sun: #FF8A6B; --sun-soft: #3D2219; --hl: rgba(255,138,107,.4);
+  --c-trabajo: #4FD6D6; --c-alquiler: #8FB0FF; --c-venta: #F2A85C; --c-servicio: #F08BC0;
+  --c-trabajo-bg: #123E42; --c-alquiler-bg: #1F2E5A; --c-venta-bg: #43301A; --c-servicio-bg: #44223A;
+  --danger: #FF8A7E; --ok: #4FD1BF; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  --chat-bg: #0F2629; --bubble-me: #17423F;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.wrap { max-width: 680px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 120px; }
+
+/* Header */
+.brand { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.wordmark { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; line-height: 1; margin: 0; }
+.wordmark .dot { color: var(--sun); width: .26em; height: .26em; margin: 0 .05em; }
+.wordmark { cursor: pointer; }
+/* Los puntos son círculos reales para que el punto saltarín calce exacto */
+.dot { display: inline-block; width: .19em; height: .19em; border-radius: 50%; background: currentColor; margin-left: .05em; }
+.fly { position: absolute; left: 0; top: 0; border-radius: 50%; pointer-events: none; z-index: 30; will-change: transform; }
+.hero { margin-top: 22px; }
+.hero-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.4rem, 10vw, 3.6rem); letter-spacing: -0.035em; line-height: .95; margin: 0; }
+.hero-title .dot { color: var(--accent); }
+.hero-title .hl { background: linear-gradient(transparent 58%, var(--hl) 58%, var(--hl) 92%, transparent 92%); padding: 0 .06em; margin: 0 -.06em; }
+.tagline { margin: 12px 0 0; font-size: 1.1rem; font-weight: 600; max-width: 40ch; text-wrap: balance; line-height: 1.35; }
+.wink { margin: 8px 0 0; color: var(--muted); font-size: .88rem; }
+.wink i { font-style: normal; font-weight: 700; color: var(--ink); }
+.seg { display: flex; gap: 6px; margin-top: 16px; }
+.seg button { flex: 1; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 9px 8px; font-weight: 700; font-size: .88rem; color: var(--muted); }
+.seg button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.curated { display: inline-flex; align-items: center; gap: 5px; font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--c-venta); background: var(--sun-soft); padding: 3px 9px; border-radius: 6px; }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill { font-size: .78rem; font-weight: 600; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.pill.good { border-color: var(--c-alquiler); color: var(--c-alquiler); background: var(--c-alquiler-bg); }
+.pill.warn { border-color: var(--c-venta); color: var(--c-venta); background: var(--c-venta-bg); }
+.check { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; font-weight: 600; color: var(--muted); }
+.tip { margin: 0; background: var(--c-trabajo-bg); border-left: 3px solid var(--accent); border-radius: 8px; padding: 9px 12px; font-size: .9rem; line-height: 1.4; overflow-wrap: anywhere; }
+.tip b { display: block; font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+.queue { background: var(--sun-soft); border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.queue h3 { margin: 0; font-family: var(--font-display); font-size: 1.1rem; }
+.queue .card { background: var(--surface); }
+.mod-btn { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 12px; font-size: .8rem; font-weight: 600; color: var(--muted); }
+.mod-btn .count { background: var(--danger); color: #fff; border-radius: 999px; padding: 0 6px; margin-left: 4px; font-size: .72rem; }
+
+/* Tabs */
+.tabs { display: flex; gap: 4px; margin-top: 22px; background: var(--surface-2); padding: 4px; border-radius: 12px; }
+.tab { flex: 1; border: 0; background: transparent; padding: 10px 8px; border-radius: 9px; font-weight: 700; color: var(--muted); }
+.tab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(22,31,69,.12); }
+.tab .n { font-weight: 500; opacity: .7; margin-left: 4px; font-variant-numeric: tabular-nums; }
+
+/* Filters */
+.filters { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex: none; border: 1px solid var(--line); background: var(--surface); padding: 6px 12px; border-radius: 999px; font-size: .85rem; font-weight: 600; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.chip .sw { width: 8px; height: 8px; border-radius: 50%; }
+.row-filters { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.select { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 7px 10px; font-size: .85rem; font-weight: 600; }
+.search { flex: 1; min-width: 160px; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 7px 12px; font-size: .9rem; }
+
+/* Feed */
+.feed { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; transition: box-shadow .2s, border-color .2s; }
+.card.flash { border-color: var(--sun); box-shadow: 0 0 0 3px var(--sun-soft); }
+.card.closed { opacity: .62; }
+.card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.cat { display: inline-flex; align-items: center; gap: 6px; font-size: .75rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; }
+.cat.trabajo { color: var(--c-trabajo); background: var(--c-trabajo-bg); }
+.cat.alquiler { color: var(--c-alquiler); background: var(--c-alquiler-bg); }
+.cat.venta { color: var(--c-venta); background: var(--c-venta-bg); }
+.cat.servicio { color: var(--c-servicio); background: var(--c-servicio-bg); }
+.cat.rec { color: var(--ink); background: var(--surface-2); }
+.meta { font-size: .8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.title { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; line-height: 1.25; margin: 0; letter-spacing: -0.01em; text-wrap: balance; overflow-wrap: anywhere; }
+.price { font-weight: 700; font-variant-numeric: tabular-nums; }
+.where { display: flex; gap: 10px; flex-wrap: wrap; align-items: baseline; font-size: .9rem; color: var(--muted); }
+.where .price { color: var(--ink); font-size: 1rem; }
+.desc { margin: 0; white-space: pre-line; overflow-wrap: anywhere; color: var(--ink); }
+.desc.clamp { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.more { border: 0; background: none; padding: 0; color: var(--accent); font-weight: 600; font-size: .85rem; align-self: flex-start; }
+.status-pill { font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); }
+.status-pill.soon { background: var(--sun-soft); color: var(--c-venta); }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 4px; border-top: 1px solid var(--line); margin-top: 2px; padding-top: 12px; }
+.btn { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 8px 12px; font-weight: 600; font-size: .85rem; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--ink); }
+.btn:hover { border-color: var(--muted); }
+.btn.wa { background: #1F9D55; border-color: #1F9D55; color: #fff; }
+.btn.wa:hover { background: #17864A; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.ghost { border-color: transparent; color: var(--muted); }
+.btn.danger { color: var(--danger); }
+.btn svg { width: 16px; height: 16px; flex: none; }
+.contact-text { font-size: .85rem; color: var(--muted); user-select: all; overflow-wrap: anywhere; }
+
+/* Empty state */
+.empty { border: 1.5px dashed var(--line); border-radius: var(--radius); padding: 28px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; background: var(--surface); }
+.empty h3 { font-family: var(--font-display); margin: 0; font-size: 1.25rem; text-wrap: balance; }
+.empty p { margin: 0; color: var(--muted); max-width: 40ch; }
+.loading { color: var(--muted); text-align: center; padding: 28px 0; }
+
+/* How it works strip */
+.how { margin-top: 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.how div { background: var(--sun-soft); border-radius: 12px; padding: 10px 12px; font-size: .82rem; line-height: 1.35; }
+.how b { display: block; font-family: var(--font-display); font-size: .95rem; margin-bottom: 2px; }
+@media (max-width: 480px) { .how { grid-template-columns: 1fr; } }
+
+/* FAB */
+.fab-bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); display: flex; justify-content: center; pointer-events: none; background: linear-gradient(to top, var(--bg) 55%, transparent); }
+.fab { pointer-events: auto; border: 0; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 1rem; padding: 14px 22px; border-radius: 999px; box-shadow: var(--shadow); display: inline-flex; gap: 8px; align-items: center; width: min(420px, 100%); justify-content: center; }
+.fab svg { width: 20px; height: 20px; }
+
+/* Sheet */
+.scrim { position: fixed; inset: 0; background: rgba(10,14,35,.45); z-index: 40; }
+.sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 41; background: var(--surface); border-radius: 20px 20px 0 0; max-height: 92%; overflow-y: auto; padding: 8px 16px calc(20px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -10px 40px rgba(0,0,0,.2); }
+@media (min-width: 720px) { .sheet { left: 50%; right: auto; width: 640px; transform: translateX(-50%); bottom: 24px; border-radius: 20px; max-height: 88%; } }
+.grabber { width: 40px; height: 4px; border-radius: 4px; background: var(--line); margin: 4px auto 12px; }
+.sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.sheet h2 { font-family: var(--font-display); font-size: 1.4rem; margin: 0; letter-spacing: -0.01em; }
+.close { border: 0; background: var(--surface-2); width: 34px; height: 34px; border-radius: 50%; font-size: 1.1rem; line-height: 1; }
+.sheet .lead { color: var(--muted); margin: 6px 0 14px; }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label { font-size: .8rem; font-weight: 700; color: var(--muted); letter-spacing: .02em; }
+.field input, .field select, .field textarea { border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 10px 12px; font-size: .95rem; width: 100%; }
+.field textarea { resize: vertical; }
+.paste { min-height: 150px; font-size: .95rem; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 440px) { .grid2 { grid-template-columns: 1fr; } }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.sheet-actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; margin-top: 4px; }
+.linkish { border: 0; background: none; color: var(--accent); font-weight: 600; padding: 4px 0; font-size: .88rem; }
+.hint { font-size: .8rem; color: var(--muted); margin: 0; }
+.ai-note { background: var(--sun-soft); border-radius: 10px; padding: 10px 12px; font-size: .85rem; }
+.err { color: var(--danger); font-size: .85rem; margin: 0; }
+.spinner { width: 16px; height: 16px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin .8s linear infinite; display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.type-pick { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+@media (max-width: 440px) { .type-pick { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.type-pick button { border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 9px 6px; font-weight: 700; font-size: .85rem; }
+.type-pick button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.toast { position: fixed; left: 50%; bottom: calc(90px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-weight: 600; font-size: .9rem; z-index: 60; max-width: calc(100% - 32px); text-align: center; }
+.notice { margin-top: 14px; font-size: .85rem; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+
+.rec-by { font-size: .82rem; color: var(--muted); }
+.vouch[aria-pressed="true"] { background: var(--c-alquiler-bg); border-color: var(--c-alquiler); color: var(--c-alquiler); }
+
+/* Story: a group chat that buries opportunities */
+.story { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); }
+.story-kicker { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.story-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 6vw, 2.2rem); letter-spacing: -0.02em; line-height: 1.05; margin: 6px 0 0; text-wrap: balance; }
+.chat { margin-top: 14px; background: var(--chat-bg); border-radius: 18px; padding: 12px 10px; display: flex; flex-direction: column; gap: 4px; }
+.chat-head { display: flex; align-items: center; gap: 10px; padding: 0 4px 8px; border-bottom: 1px solid var(--line); margin-bottom: 2px; }
+.chat-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--sun); display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; color: var(--sun-ink); font-size: .85rem; flex: none; }
+.chat-name { font-weight: 700; font-size: .92rem; line-height: 1.2; }
+.chat-sub { font-size: .75rem; color: var(--muted); }
+.bubble { max-width: 84%; background: var(--surface); border-radius: 4px 12px 12px 12px; padding: 5px 9px 4px; box-shadow: 0 1px 1px rgba(22,31,69,.08); min-width: 0; overflow-wrap: anywhere; }
+.bubble.me { align-self: flex-end; background: var(--bubble-me); border-radius: 12px 4px 12px 12px; }
+.bubble .who { font-size: .76rem; font-weight: 700; display: block; margin-bottom: 0; line-height: 1.3; }
+.bubble .txt { font-size: .9rem; line-height: 1.32; }
+.bubble .time { float: right; font-size: .66rem; color: var(--muted); margin: 6px 0 0 10px; line-height: 1; font-variant-numeric: tabular-nums; }
+.bubble::after { content: ""; display: block; clear: both; }
+.bubble .tr { display: block; font-size: .78rem; color: var(--muted); font-style: italic; }
+.bubble:nth-child(4n+1) { transform: rotate(-.4deg); }
+.bubble:nth-child(4n+3) { transform: rotate(.5deg); }
+.bubble.pop { animation: pop .45s ease-out both; }
+@keyframes pop { from { transform: translateY(6px) scale(.97); } }
+.burial { align-self: center; display: flex; flex-direction: column; align-items: center; gap: 5px; margin: 6px 0; width: 100%; }
+.burial-count { background: var(--sun); color: var(--sun-ink); font-weight: 800; font-size: .82rem; padding: 4px 12px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+.burial-noise { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; opacity: .75; }
+.burial-noise span { font-size: .75rem; background: var(--surface); border-radius: 999px; padding: 3px 9px; color: var(--muted); }
+.day-chip { align-self: center; font-size: .7rem; font-weight: 700; color: var(--muted); background: var(--surface); padding: 2px 9px; border-radius: 6px; margin: 4px 0 1px; }
+.twist { margin-top: 22px; }
+.twist-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.4rem, 10vw, 3.6rem); letter-spacing: -0.035em; line-height: .95; margin: 0; }
+.twist-title .x { color: var(--sun); }
+.twist-sub { margin: 8px 0 0; font-size: 1.1rem; font-weight: 600; max-width: 32ch; text-wrap: balance; }
+.twist-tr { margin: 6px 0 0; color: var(--muted); font-size: .88rem; }
+.values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
+@media (max-width: 560px) { .values { grid-template-columns: 1fr; gap: 8px; } }
+.values h3 { font-family: var(--font-display); font-size: 1.05rem; margin: 0 0 1px; }
+.values h3::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--sun); margin-right: 8px; vertical-align: 1px; }
+.values p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.4; }
+.story-cta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.story-cta .btn { padding: 12px 18px; font-size: .95rem; }
+
+/* Fotos, enlaces, reacciones y comentarios */
+.gallery { display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.gallery::-webkit-scrollbar { display: none; }
+.gallery img { flex: none; width: 72%; max-width: 320px; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; scroll-snap-align: start; background: var(--surface-2); cursor: zoom-in; }
+.gallery.one img { width: 100%; max-width: 100%; }
+.links { display: flex; flex-wrap: wrap; gap: 6px; }
+.link-chip { display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; font-size: .82rem; font-weight: 600; color: var(--accent); text-decoration: none; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.link-chip:hover { border-color: var(--accent); }
+.social { display: flex; flex-direction: column; gap: 8px; }
+.react-row { display: flex; gap: 4px; flex-wrap: wrap; }
+.react { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 2px 8px; font-size: .85rem; line-height: 1.5; font-variant-numeric: tabular-nums; }
+.react .n { font-size: .75rem; font-weight: 700; color: var(--muted); margin-left: 2px; }
+.react[aria-pressed="true"] { border-color: var(--accent); background: var(--c-trabajo-bg); }
+.comments { display: flex; flex-direction: column; gap: 5px; }
+.cmt { font-size: .88rem; background: var(--surface-2); border-radius: 10px; padding: 5px 10px; overflow-wrap: anywhere; display: flex; gap: 6px; align-items: flex-start; }
+.cmt .body { flex: 1; min-width: 0; }
+.cmt b { font-size: .8rem; margin-right: 4px; }
+.cmt .when { font-size: .72rem; color: var(--muted); margin-left: 4px; }
+.cmt .x { border: 0; background: none; color: var(--muted); padding: 0 2px; font-size: .9rem; line-height: 1.3; }
+.cmt-form { display: flex; gap: 6px; }
+.cmt-form input { flex: 1; min-width: 0; border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 7px 12px; font-size: .88rem; }
+.thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
+.thumb { position: relative; width: 64px; height: 64px; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+.thumb button { position: absolute; top: -6px; right: -6px; width: 22px; height: 22px; border-radius: 50%; border: 0; background: var(--ink); color: var(--bg); font-size: .8rem; line-height: 1; }
+.addphoto { width: 64px; height: 64px; border: 1.5px dashed var(--line); border-radius: 8px; display: grid; place-items: center; color: var(--muted); font-size: 1.5rem; cursor: pointer; background: var(--bg); }
+.btn.google { justify-content: center; padding: 12px 16px; font-size: 1rem; background: var(--surface); border: 1.5px solid var(--line); }
+.btn.google:hover { border-color: var(--accent); }
+.btn.google svg { width: 20px; height: 20px; }
+.lightbox { position: fixed; inset: 0; z-index: 70; background: rgba(5,15,17,.9); display: grid; place-items: center; padding: 16px; cursor: zoom-out; }
+.lightbox img { max-width: 100%; max-height: 100%; border-radius: 8px; }
+
+.since { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 440px) { .since { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.consent { display: flex; gap: 8px; align-items: flex-start; font-size: .88rem; line-height: 1.4; }
+.consent input { margin-top: 3px; flex: none; }
+.lock-note { font-size: .8rem; color: var(--muted); margin: 0; }
+
+footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: center; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <p class="wordmark" id="wordmark" aria-label="Tu.turquía" title="Tu.turquía">Tu<span class="dot" id="wmDot" aria-hidden="true"></span>turqu<span id="wmI">í</span>a</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="mod-btn" id="meBtn" hidden></button><button class="mod-btn" id="modBtn" hidden>Moderación <span class="count" id="modCount">0</span></button></div>
+    </div>
+    <div class="hero">
+      <h1 class="hero-title">A la <span class="hl">mano</span><span class="dot" id="heroDot" aria-hidden="true"></span></h1>
+      <p class="tagline">Se acabó el “búscalo arriba”. Aquí tienes las oportunidades de la comunidad latina en Turquía, ordenadas y a mano.</p>
+      <p class="wink">Como dicen aquí: <i>fırsat kaçmasın</i>, que la oportunidad no se escape.</p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-board" aria-selected="true" data-view="board">Oportunidades<span class="n" id="nBoard"></span></button>
+      <button class="tab" role="tab" id="tab-recs" aria-selected="false" data-view="recs">Recomendadas<span class="n" id="nRecs"></span></button>
+    </div>
+  </header>
+
+  <!-- OPORTUNIDADES -->
+  <section id="view-board">
+    <div class="seg" role="group" aria-label="Origen">
+      <button id="srcCommunity" aria-pressed="true">De la comunidad<span class="n" id="nCommunity"></span></button>
+      <button id="srcJobs" aria-pressed="false">Empleos curados<span class="n" id="nJobs"></span></button>
+    </div>
+
+    <div id="pane-jobs" hidden>
+      <div class="filters">
+        <div class="chips" id="modeChips" aria-label="Modalidad"></div>
+        <div class="row-filters">
+          <select class="select" id="jobCity" aria-label="Ciudad"></select>
+          <label class="check"><input type="checkbox" id="noTurkish"> Sin turco obligatorio</label>
+          <input class="search" id="searchJobs" type="search" placeholder="Buscar: atención al cliente, profesora, remoto…" aria-label="Buscar empleos">
+        </div>
+      </div>
+      <div class="feed" id="jobFeed"><p class="loading">Cargando empleos…</p></div>
+    </div>
+
+    <div id="pane-community">
+    <div class="filters">
+      <div class="chips" id="typeChips" aria-label="Tipo de anuncio"></div>
+      <div class="row-filters">
+        <select class="select" id="cityFilter" aria-label="Ciudad"></select>
+        <input class="search" id="searchBoard" type="search" placeholder="Buscar: Karşıyaka, niñera, sofá…" aria-label="Buscar anuncios">
+      </div>
+    </div>
+    <div class="feed" id="boardFeed"><p class="loading">Cargando anuncios…</p></div>
+    </div>
+  </section>
+
+  <!-- HISTORIA: por qué existe Tu.turquía -->
+  <section class="story" id="story" aria-labelledby="storyTitle">
+    <p class="story-kicker">¿Te suena?</p>
+    <h2 class="story-title" id="storyTitle">Un día cualquiera en el grupo de latinas</h2>
+
+    <div class="chat" role="img" aria-label="Conversación de ejemplo en un grupo de WhatsApp donde las oportunidades se pierden entre cientos de mensajes">
+      <div class="chat-head">
+        <div class="chat-avatar">LT</div>
+        <div><div class="chat-name">Latinas en Turquía 🇹🇷</div><div class="chat-sub">1.024 participantes</div></div>
+      </div>
+
+      <div class="day-chip">Lunes</div>
+      <div class="bubble"><span class="who" style="color: var(--c-venta)">Paola</span><span class="txt">Chicas, donde trabajo están buscando a alguien que hable español nativo 💼 Ofrecen visa de trabajo y buenas condiciones. Si les interesa, escríbanme por interno a más tardar mañana para pasar sus CV ✨</span><span class="time">08:47</span></div>
+      <div class="bubble"><span class="who" style="color: var(--c-alquiler)">Valentina</span><span class="txt">Chicas, rento cuarto amoblado en Bornova, cerca del metro, desde noviembre 🏡</span><span class="time">09:14</span></div>
+      <div class="bubble"><span class="who" style="color: var(--c-servicio)">Daniela</span><span class="txt">Recomiendo a mi doctor porque habla por lo menos inglés y es súper amable con las yabancı 🙌 Este es su número por si lo necesitan: 0532 *** ** **</span><span class="time">09:31</span></div>
+
+      <div class="burial">
+        <span class="burial-count">+ 381 mensajes</span>
+        <div class="burial-noise"><span>🎂 ¡Feliz cumple, Majo!</span><span>¿Mañana hay pazar en Bostanlı?</span><span>[sticker]</span><span>jajaja 😂</span><span>¿Alguien va al concierto?</span></div>
+      </div>
+
+      <div class="day-chip">Jueves</div>
+      <div class="bubble"><span class="who" style="color: var(--c-trabajo)">Mariela</span><span class="txt">¿Alguien conoce un abogado que hable español? Necesito una asesoría urgente 🙏</span><span class="time">10:02</span></div>
+      <div class="bubble"><span class="who" style="color: var(--c-venta)">Sofi</span><span class="txt">Creo que alguien recomendó una hace meses… búscalo arriba</span><span class="time">10:09</span></div>
+      <div class="bubble me"><span class="txt">¿Alguien tiene el número de la que rentaba el cuarto en Bornova?</span><span class="time">11:40</span></div>
+      <div class="bubble"><span class="who" style="color: var(--c-alquiler)">Valentina</span><span class="txt">Ya lo rentó ayer 😩</span><span class="time">11:52</span></div>
+      <div class="bubble me"><span class="txt">Nooo, qué bronca, justo buscaba eso</span><span class="time">11:53</span></div>
+      <div class="bubble"><span class="who" style="color: var(--c-servicio)">Ana</span><span class="txt">Paola, ¿todavía reciben CV para lo del español nativo con visa? 🙏</span><span class="time">13:15</span></div>
+      <div class="bubble"><span class="who" style="color: var(--c-venta)">Paola</span><span class="txt">Ay no, cerraron el martes 😕 Ya escogieron</span><span class="time">13:22</span></div>
+      <div class="bubble"><span class="who" style="color: var(--c-trabajo)">Caro</span><span class="txt">¿Alguien guardó el número del doctor que hablaba inglés? El que recomendaron el otro día…</span><span class="time">15:20</span></div>
+      <div class="bubble"><span class="who" style="color: var(--c-servicio)">Ana</span><span class="txt">¿Quién era la que vendía el coche de bebé? Ya no lo encuentro y lo necesito :(</span><span class="time">16:05</span></div>
+      <div class="bubble"><span class="who" style="color: var(--c-venta)">Sofi</span><span class="txt">Sube, sube… no lo encuentro</span><span class="time">16:11</span></div>
+      <div class="bubble me"><span class="txt">Silencié el grupo una semana y me perdí la oferta de trabajo 🥲</span><span class="time">19:47</span></div>
+      <div class="bubble"><span class="who" style="color: var(--c-alquiler)">Lu</span><span class="txt">¿Alguien guardó el contacto de la señora que hace arepas?</span><span class="time">20:30</span></div>    </div>
+
+    <div class="twist">
+      <h2 class="twist-title">Fırsat kaçtı<span class="x">.</span></h2>
+      <p class="twist-sub">Eso pasa a 381 mensajes de distancia. Aquí no.</p>
+      <p class="twist-tr"><i>Fırsat kaçtı</i>: la oportunidad se escapó.</p>
+    </div>
+
+    <div class="values">
+      <div><h3>Se queda</h3><p>Lo que se publica no se pierde en el scroll. El cuarto, el doctor y la oferta siguen aquí mañana.</p></div>
+      <div><h3>Se encuentra</h3><p>Filtras por ciudad, tipo o idioma en segundos. Sin subir y subir.</p></div>
+      <div><h3>Está al día</h3><p>Los empleos curados vencen solos a los 30 días, así que los que ves siguen abiertos. Lo demás se queda hasta que su autora avisa que ya no está disponible.</p></div>
+    </div>
+
+    <div class="story-cta">
+      <button class="btn primary" id="storyPost">Publicar mi anuncio</button>
+      <button class="btn" id="storyJobs">Ver empleos curados</button>
+    </div>
+  </section>
+
+  <!-- RECOMENDADAS -->
+  <section id="view-recs" hidden>
+    <div class="filters">
+      <div class="chips" id="recChips" aria-label="Categoría"></div>
+      <div class="row-filters">
+        <select class="select" id="recCity" aria-label="Ciudad"></select>
+        <input class="search" id="searchRecs" type="search" placeholder="Buscar: pediatra, abogada, peluquera…" aria-label="Buscar recomendaciones">
+      </div>
+    </div>
+    <div class="feed" id="recFeed"><p class="loading">Cargando recomendaciones…</p></div>
+  </section>
+
+  <!-- MODERACIÓN -->
+  <section id="view-mod" hidden>
+    <div class="feed" id="modFeed"></div>
+  </section>
+
+  <p class="notice" id="offlineNotice" hidden>No pudimos conectarnos. Revisa tu internet y vuelve a cargar la página.</p>
+
+  <footer>Tu.turquía · Los empleos curados vencen solos a los 30 días para que siempre estén vigentes · <a href="/privacidad.html" style="color: inherit">Privacidad</a></footer>
+</div>
+
+<div class="fab-bar">
+  <button class="fab" id="fab">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    <span id="fabLabel">Publicar anuncio</span>
+  </button>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+
+<!-- Sheet: publicar anuncio -->
+<div class="sheet" id="sheetPost" role="dialog" aria-modal="true" aria-labelledby="postTitle" hidden>
+  <div class="grabber"></div>
+  <div class="sheet-head"><h2 id="postTitle">Publicar anuncio</h2><button class="close" data-close aria-label="Cerrar">×</button></div>
+
+  <div id="stepPaste">
+    <p class="lead">Pega el mismo mensaje que mandaste (o vas a mandar) al grupo de WhatsApp. Lo ordenamos por ti y tú solo revisas.</p>
+    <div class="stack">
+      <div class="field">
+        <label for="pasteBox">Tu mensaje de WhatsApp</label>
+        <textarea class="paste" id="pasteBox" placeholder="Ej: Hola chicas! Rento habitación amoblada en Bornova, cerca del metro…"></textarea>
+      </div>
+      <p class="err" id="pasteErr" hidden></p>
+      <div class="sheet-actions" style="justify-content: space-between; align-items: center;">
+        <button class="linkish" id="tryExample">Probar con un mensaje de ejemplo</button>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="btn ghost" id="manualBtn">Llenar a mano</button>
+          <button class="btn primary" id="parseBtn">Ordenar mi anuncio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form id="stepForm" class="stack" hidden>
+    <p class="ai-note" id="aiNote" hidden>Lo ordenamos a partir de tu mensaje. Revisa que todo esté bien antes de publicar.</p>
+    <div class="field">
+      <label>Tipo</label>
+      <div class="type-pick" id="typePick"></div>
+    </div>
+    <div class="field"><label for="fTitle">Título</label><input id="fTitle" required maxlength="90" placeholder="Habitación amoblada en Bornova"></div>
+    <div class="field"><label for="fDesc">Descripción</label><textarea id="fDesc" rows="5" maxlength="1500" required></textarea></div>
+    <div class="grid2">
+      <div class="field"><label for="fCity">Ciudad</label><select id="fCity" required></select></div>
+      <div class="field"><label for="fArea">Barrio o zona (opcional)</label><input id="fArea" maxlength="60" placeholder="Bornova"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label for="fPrice">Precio (opcional)</label><input id="fPrice" maxlength="40" placeholder="12.000 TL / mes"></div>
+      <div class="field"><label for="fName">Tu nombre o apodo</label><input id="fName" maxlength="40" placeholder="Caro"></div>
+    </div>
+    <div class="field">
+      <label>Fotos (opcional, hasta 5)</label>
+      <div class="thumbs" id="thumbs"></div>
+      <input type="file" id="fPhotos" accept="image/*" multiple hidden>
+      <p class="hint" id="photoHint">Se achican solas para que carguen rápido.</p>
+    </div>
+    <div class="field">
+      <label for="fLinks">Enlaces (opcional)</label>
+      <textarea id="fLinks" rows="2" maxlength="600" placeholder="https://instagram.com/tuemprendimiento"></textarea>
+      <p class="hint">Instagram, YouTube, TikTok, tu web… uno por línea, hasta 4.</p>
+    </div>
+    <div class="field">
+      <label for="fContact">WhatsApp o contacto</label>
+      <input id="fContact" required maxlength="80" placeholder="+90 5XX XXX XX XX">
+      <p class="hint">Si es un número, el anuncio tendrá un botón para escribirte por WhatsApp.</p>
+    </div>
+    <p class="err" id="formErr" hidden></p>
+    <div class="sheet-actions">
+      <button type="button" class="btn ghost" id="backToPaste">Volver</button>
+      <button type="submit" class="btn primary" id="publishBtn">Publicar anuncio</button>
+    </div>
+  </form>
+</div>
+
+<!-- Sheet: recomendar -->
+<div class="sheet" id="sheetRec" role="dialog" aria-modal="true" aria-labelledby="recTitle" hidden>
+  <div class="grabber"></div>
+  <div class="sheet-head"><h2 id="recTitle">Recomendar a alguien</h2><button class="close" data-close aria-label="Cerrar">×</button></div>
+  <p class="lead">Esa doctora, abogada o técnico de confianza que siempre recomiendas en los grupos. Aquí queda para la próxima que pregunte.</p>
+  <form id="recForm" class="stack">
+    <div class="field"><label for="rName">¿A quién recomiendas?</label><input id="rName" required maxlength="70" placeholder="Dra. Elif Kaya, pediatra"></div>
+    <div class="grid2">
+      <div class="field"><label for="rCat">Categoría</label><select id="rCat" required></select></div>
+      <div class="field"><label for="rCity">Ciudad</label><select id="rCity2" required></select></div>
+    </div>
+    <div class="field"><label for="rWhy">¿Por qué la recomiendas?</label><textarea id="rWhy" rows="3" required maxlength="600" placeholder="Habla inglés, muy paciente, atiende en Karşıyaka. Fui con mis dos hijos."></textarea></div>
+    <div class="grid2">
+      <div class="field"><label for="rLang">Idiomas que habla (opcional)</label><input id="rLang" maxlength="50" placeholder="Turco, inglés"></div>
+      <div class="field"><label for="rContact">Contacto o dirección (opcional)</label><input id="rContact" maxlength="100" placeholder="Teléfono, Instagram o dirección"></div>
+    </div>
+    <p class="err" id="recErr" hidden></p>
+    <div class="sheet-actions"><button type="submit" class="btn primary" id="recSubmit">Guardar recomendación</button></div>
+  </form>
+</div>
+
+<!-- Sheet: agregar empleo (solo administradora) -->
+<div class="sheet" id="sheetJob" role="dialog" aria-modal="true" aria-labelledby="jobTitleH" hidden>
+  <div class="grabber"></div>
+  <div class="sheet-head"><h2 id="jobTitleH">Agregar empleo curado</h2><button class="close" data-close aria-label="Cerrar">×</button></div>
+  <div id="jobStepPaste">
+    <p class="lead">Pega el texto de la oferta y su enlace original. Lo ordenamos y tú revisas antes de publicar.</p>
+    <div class="stack">
+      <div class="field"><label for="jUrlPaste">Enlace a la oferta original</label><input id="jUrlPaste" type="url" placeholder="https://www.linkedin.com/jobs/view/…"></div>
+      <div class="field"><label for="jPaste">Texto de la oferta</label><textarea class="paste" id="jPaste" placeholder="Pega aquí la descripción del puesto…"></textarea></div>
+      <p class="err" id="jPasteErr" hidden></p>
+      <div class="sheet-actions">
+        <button class="btn ghost" id="jManual">Llenar a mano</button>
+        <button class="btn primary" id="jParse">Ordenar oferta</button>
+      </div>
+    </div>
+  </div>
+  <form id="jobForm" class="stack" hidden>
+    <div class="field"><label for="jTitle">Puesto</label><input id="jTitle" required maxlength="100"></div>
+    <div class="grid2">
+      <div class="field"><label for="jCompany">Empresa u organización</label><input id="jCompany" required maxlength="80"></div>
+      <div class="field"><label for="jCity">Ciudad</label><select id="jCity2" required></select></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label for="jMode">Modalidad</label><select id="jMode"><option value="remoto">Remoto</option><option value="híbrido">Híbrido</option><option value="presencial">Presencial</option></select></div>
+      <div class="field"><label for="jSpanish">Español</label><select id="jSpanish"><option value="requerido">Requerido</option><option value="ventaja">Es una ventaja</option></select></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label for="jEnglish">Inglés</label><select id="jEnglish"></select></div>
+      <div class="field"><label for="jTurkish">Turco</label><select id="jTurkish"></select></div>
+    </div>
+    <div class="field"><label for="jPermit">Permiso de trabajo</label><select id="jPermit"></select></div>
+    <div class="field"><label for="jSummary">Resumen para las paisanas</label><textarea id="jSummary" rows="4" required maxlength="700"></textarea></div>
+    <div class="field"><label for="jTip">Consejo práctico (opcional)</label><textarea id="jTip" rows="3" maxlength="600" placeholder="Ej: Si vives en Kadıköy, ponlo en la primera línea: es presencial y pesa. Destaca si preparaste alumnos para el DELE. Saluda en turco en tu correo: «Merhaba, İspanyolca öğretmeni ilanınız için başvuruyorum»."></textarea></div>
+    <div class="grid2">
+      <div class="field"><label for="jUrl">Enlace original</label><input id="jUrl" type="url" required></div>
+      <div class="field"><label for="jSource">Fuente</label><input id="jSource" maxlength="40" placeholder="LinkedIn, Kariyer.net…"></div>
+    </div>
+    <p class="err" id="jobErr" hidden></p>
+    <div class="sheet-actions"><button type="button" class="btn ghost" id="jBack">Volver</button><button type="submit" class="btn primary" id="jPublish">Publicar empleo</button></div>
+  </form>
+</div>
+
+<!-- Sheet: reportar -->
+<div class="sheet" id="sheetReport" role="dialog" aria-modal="true" aria-labelledby="repTitle" hidden>
+  <div class="grabber"></div>
+  <div class="sheet-head"><h2 id="repTitle">Reportar anuncio</h2><button class="close" data-close aria-label="Cerrar">×</button></div>
+  <p class="lead">Cuéntanos qué pasa. La administradora lo revisa.</p>
+  <div class="stack">
+    <div class="field">
+      <label for="repReason">Motivo</label>
+      <select id="repReason">
+        <option>Ya no está disponible</option>
+        <option>Parece una estafa</option>
+        <option>Información falsa o engañosa</option>
+        <option>Contenido inapropiado</option>
+        <option>Otro</option>
+      </select>
+    </div>
+    <div class="sheet-actions"><button class="btn primary" id="repSubmit">Enviar reporte</button></div>
+  </div>
+</div>
+
+<!-- Sheet: registro light -->
+<div class="sheet" id="sheetJoin" role="dialog" aria-modal="true" aria-labelledby="joinTitle" hidden>
+  <div class="grabber"></div>
+  <div class="sheet-head"><h2 id="joinTitle">¡Bienvenida a Tu.turquía!</h2><button class="close" data-close aria-label="Cerrar">×</button></div>
+  <p class="lead" id="joinLead"></p>
+  <form id="joinForm" class="stack">
+    <div class="field"><label for="mName">Tu nombre</label><input id="mName" maxlength="40" autocomplete="given-name" placeholder="Como te dicen tus amigas"></div>
+    <div class="field"><label for="mCity">¿En qué ciudad vives?</label><select id="mCity"></select></div>
+    <div class="field"><label>¿Hace cuánto vives en Turquía?</label><div class="type-pick since" id="sincePick"></div></div>
+    <div class="grid2">
+      <div class="field"><label for="mPhone">Teléfono (WhatsApp)</label><input id="mPhone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="+90 5XX XXX XX XX"></div>
+      <div class="field"><label for="mEmail">Email (opcional)</label><input id="mEmail" type="email" maxlength="80" autocomplete="email" placeholder="tu@correo.com"></div>
+    </div>
+    <p class="ai-note">Tu teléfono y tu email solo los ve la administradora. Nunca aparecen en los anuncios ni se comparten con nadie.</p>
+    <label class="consent"><input type="checkbox" id="mRules"> Me comprometo a publicar información real y a tratar con respeto a las demás.</label>
+    <p class="err" id="joinErr" hidden></p>
+    <div class="sheet-actions" style="justify-content: space-between;"><button type="button" class="btn ghost" id="logoutBtn">Cerrar sesión</button><button type="submit" class="btn primary" id="joinBtn">Entrar a la comunidad</button></div>
+  </form>
+</div>
+
+<!-- Sheet: entrar con el teléfono -->
+<div class="sheet" id="sheetLogin" role="dialog" aria-modal="true" aria-labelledby="loginTitle" hidden>
+  <div class="grabber"></div>
+  <div class="sheet-head"><h2 id="loginTitle">Entra a Tu.turquía</h2><button class="close" data-close aria-label="Cerrar">×</button></div>
+  <p class="lead" id="loginLead">Mirar es libre. Para publicar, comentar o reaccionar, entra con tu cuenta de Google. Sin contraseñas nuevas.</p>
+  <div class="stack" id="googleBox">
+    <button type="button" class="btn google" id="googleBtn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.9-5.5 3.9-3.3 0-6-2.7-6-6.1s2.7-6.1 6-6.1c1.9 0 3.1.8 3.8 1.5l2.6-2.5C16.8 3.3 14.6 2.3 12 2.3 6.6 2.3 2.3 6.6 2.3 12s4.3 9.7 9.7 9.7c5.6 0 9.3-3.9 9.3-9.5 0-.6-.1-1.1-.2-1.6H12z"/></svg>
+      Entrar con Google
+    </button>
+    <p class="err" id="gErr" hidden></p>
+    <p class="hint">Después te pedimos tu nombre, ciudad y teléfono. Tu teléfono solo lo ve la administradora.</p>
+  </div>
+  <form id="loginPhoneForm" class="stack" hidden>
+    <div class="field"><label for="lPhone">Tu teléfono</label><input id="lPhone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" value="+90 "></div>
+    <p class="hint">Si tu número no es turco, cambia el +90 por el código de tu país.</p>
+    <p class="err" id="lErr" hidden></p>
+    <div class="sheet-actions"><button class="btn primary" type="submit" id="lSend">Enviarme el código</button></div>
+  </form>
+  <form id="loginCodeForm" class="stack" hidden>
+    <div class="field"><label for="lCode">Código de 6 dígitos</label><input id="lCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456"></div>
+    <p class="hint" id="lSentTo"></p>
+    <p class="err" id="lErr2" hidden></p>
+    <div class="sheet-actions"><button type="button" class="btn ghost" id="lBack">Cambiar número</button><button class="btn primary" type="submit" id="lVerify">Entrar</button></div>
+  </form>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+<div class="lightbox" id="lightbox" hidden><img id="lightboxImg" alt="Foto ampliada"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
+<script>
+// Puente a Supabase: ofrece la misma interfaz que la página usaba dentro de Claude
+// (claude.use("db") / claude.use("user")), así el resto del código no cambia.
+(() => {
+  const SB_URL = "https://rxiufjcecjoqesszxkgv.supabase.co";
+  const SB_KEY = "sb_publishable_w_ZEAfIxkdyBdt8sR8qjpg_6qM5D7NH";
+  if (!window.supabase || !window.supabase.createClient) return;
+  const sb = window.supabase.createClient(SB_URL, SB_KEY);
+  window.ttSupabase = sb;
+
+  const toErr = (e) => ({ code: e && (e.code === "42501" || /row-level security|permission denied/i.test(e.message || "")) ? "not_granted" : "unavailable", message: (e && e.message) || "" });
+  const snap = (row) => ({ id: row ? row.id : null, exists: !!row, data: () => (row ? row.data : undefined), metadata: { fromCache: false, hasPendingWrites: false } });
+
+  const listeners = {}, channels = {};
+  function notify(coll) { (listeners[coll] || new Set()).forEach((fn) => fn()); }
+  function watch(coll, run) {
+    let t = null;
+    const deb = () => { clearTimeout(t); t = setTimeout(run, 250); };
+    (listeners[coll] = listeners[coll] || new Set()).add(deb);
+    if (!channels[coll]) {
+      channels[coll] = sb.channel("docs-" + coll)
+        .on("postgres_changes", { event: "*", schema: "public", table: "docs", filter: "collection=eq." + coll }, () => notify(coll))
+        .subscribe();
+    }
+    return () => listeners[coll].delete(deb);
+  }
+  // Red de seguridad si las actualizaciones en vivo se cortan.
+  setInterval(() => { if (document.visibilityState === "visible") Object.keys(listeners).forEach(notify); }, 60000);
+
+  function makeDoc(coll, id) {
+    const ref = {
+      id, path: coll + "/" + id,
+      async get() {
+        const { data, error } = await sb.from("docs").select("id,data").eq("collection", coll).eq("id", id).maybeSingle();
+        if (error) throw toErr(error);
+        return snap(data);
+      },
+      async set(d) {
+        const { error } = await sb.from("docs").upsert({ collection: coll, id, data: d, updated_at: new Date().toISOString() }, { onConflict: "collection,id" });
+        if (error) throw toErr(error);
+        notify(coll);
+      },
+      async update(d) {
+        const cur = await ref.get();
+        if (!cur.exists) throw { code: "invalid_argument", message: "not found" };
+        const { data: rows, error } = await sb.from("docs").update({ data: { ...cur.data(), ...d }, updated_at: new Date().toISOString() }).eq("collection", coll).eq("id", id).select("id");
+        if (error) throw toErr(error);
+        if (!rows || !rows.length) throw { code: "not_granted", message: "no permission" };
+        notify(coll);
+      },
+      async delete() {
+        const { error } = await sb.from("docs").delete().eq("collection", coll).eq("id", id);
+        if (error) throw toErr(error);
+        notify(coll);
+      },
+      onSnapshot(next, err) {
+        const run = () => ref.get().then(next, (e) => err && err(e));
+        run();
+        return watch(coll, run);
+      },
+    };
+    return ref;
+  }
+  function makeQuery(coll, opts) {
+    const q = {
+      orderBy(f, dir) { return makeQuery(coll, { ...opts, order: [f, dir || "asc"] }); },
+      limit(n) { return makeQuery(coll, { ...opts, limit: n }); },
+      where() { return q; },
+      async get() {
+        const desc = !opts.order || opts.order[1] === "desc";
+        const { data, error } = await sb.from("docs").select("id,data").eq("collection", coll).order("created_at", { ascending: !desc }).limit(opts.limit || 1000);
+        if (error) throw toErr(error);
+        let rows = data || [];
+        if (opts.order) {
+          const [f, d] = opts.order;
+          rows = rows.slice().sort((a, b) => { const x = String((a.data || {})[f] ?? ""), y = String((b.data || {})[f] ?? ""); return d === "desc" ? y.localeCompare(x) : x.localeCompare(y); });
+        }
+        const docs = rows.map(snap);
+        return { docs, size: docs.length, empty: !docs.length, docChanges: () => [], metadata: { fromCache: false, hasPendingWrites: false } };
+      },
+      onSnapshot(next, err) {
+        const run = () => q.get().then(next, (e) => err && err(e));
+        run();
+        return watch(coll, run);
+      },
+    };
+    return q;
+  }
+  function makeColl(coll) {
+    const q = makeQuery(coll, {});
+    return {
+      ...q, path: coll,
+      doc: (id) => makeDoc(coll, id || Date.now().toString(36) + Math.random().toString(36).slice(2, 8)),
+      add: async (d) => { const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8); await makeDoc(coll, id).set(d); return makeDoc(coll, id); },
+    };
+  }
+  const db = { collection: makeColl, doc: (path) => { const [c, i] = String(path).split("/"); return makeDoc(c, i); } };
+
+  let session = null;
+  const ready = sb.auth.getSession().then(({ data }) => { session = data.session; }).catch(() => {});
+  let adminP = null;
+  const user = {
+    async id() { await ready; return (session && session.user && session.user.id) || null; },
+    async isOwner() {
+      await ready;
+      if (!session) return false;
+      if (!adminP) adminP = sb.rpc("is_admin").then(({ data }) => !!data, () => false);
+      return adminP;
+    },
+    async canEdit() { return user.isOwner(); },
+    async can() { await ready; return !!session; },
+    async me() { await ready; const u = session && session.user; return { id: u ? u.id : null, phone: u && u.phone ? "+" + String(u.phone).replace(/^\+/, "") : "", name: "" }; },
+    async profiles(ids) {
+      const list = [...new Set([].concat(ids || []))].filter(Boolean);
+      const out = {};
+      if (!list.length) return out;
+      const { data } = await sb.from("docs").select("id,data").eq("collection", "profiles").in("id", list);
+      (data || []).forEach((r) => { out[r.id] = { id: r.id, name: (r.data && r.data.name) || "" }; });
+      return out;
+    },
+  };
+  window.claude = { use: async (name) => (name === "db" ? db : name === "user" ? user : null) };
+})();
+</script>
+<script>
+(() => {
+  // URL pública del artifact, para armar enlaces que se puedan pegar en WhatsApp.
+  const SHARE_URL = location.origin + "/";
+
+  const TYPES = [
+    { id: "trabajo", label: "Trabajo", short: "Trabajo" },
+    { id: "alquiler", label: "Alquiler", short: "Alquiler" },
+    { id: "venta", label: "Venta", short: "Venta" },
+    { id: "servicio", label: "Servicios", short: "Servicio" },
+  ];
+  const CITIES = ["İstanbul", "İzmir", "Ankara", "Antalya", "Bursa", "Muğla", "Otra ciudad", "Online / toda Turquía"];
+  const REC_CATS = ["Salud", "Legal y trámites", "Hogar y reparaciones", "Belleza", "Niñas y niños", "Comida latina", "Idiomas y clases", "Otro"];
+  const DAY = 86400000;
+  const LIFE_DAYS = 30;
+  const EXAMPLE = "Hola chicas!! 🙋🏻‍♀️ Por mudanza vendo sofá cama gris en muy buen estado, 2 años de uso, y una mesa de comedor con 4 sillas. Sofá 6.500 TL, mesa 4.000 TL o todo por 9.500. Estoy en Karşıyaka, Izmir, hay que recogerlo. Escríbanme al 0532 418 22 07 🙏 Caro";
+
+  const $ = (s) => document.querySelector(s);
+  const state = {
+    view: "board", type: "todo", city: "Todas", q: "", recCat: "Todas", recCity: "Todas", rq: "",
+    listings: [], recs: [], reports: [], uid: null, isOwner: false, db: null, sample: null,
+    formType: "venta", expanded: new Set(), reportingId: null, deepLinked: false, loaded: { l: false, r: false, j: false },
+    source: "comunidad", jobs: [], queue: [], mode: "todos", jobCity: "Todas", noTurkish: false, jq: "", editingQueueId: null,
+    member: null, members: [], pendingAction: null, sinceVal: "",
+  };
+  const LEVELS = ["No requerido", "Básico", "Intermedio", "Avanzado", "Nativo o fluido"];
+  const PERMITS = ["No lo especifica", "Piden permiso de trabajo o ikamet vigente", "La empresa gestiona el permiso", "Remoto: contrato desde el extranjero o freelance"];
+  const MODES = [{ id: "todos", label: "Todas" }, { id: "remoto", label: "Remoto" }, { id: "híbrido", label: "Híbrido" }, { id: "presencial", label: "Presencial" }];
+
+  /* ---------- helpers ---------- */
+  function h(tag, attrs = {}, ...kids) {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === "class") el.className = v;
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v === true ? "" : v);
+    }
+    for (const kid of kids.flat()) if (kid != null && kid !== false) el.append(kid instanceof Node ? kid : document.createTextNode(String(kid)));
+    return el;
+  }
+  const icon = (d) => { const s = document.createElementNS("http://www.w3.org/2000/svg", "svg"); s.setAttribute("viewBox", "0 0 24 24"); s.setAttribute("fill", "none"); s.setAttribute("stroke", "currentColor"); s.setAttribute("stroke-width", "2"); s.setAttribute("stroke-linecap", "round"); s.setAttribute("stroke-linejoin", "round"); s.innerHTML = d; return s; };
+  const ICONS = {
+    wa: '<path d="M3 21l1.7-4.6A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2L9 9.5z"/>',
+    link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+    flag: '<path d="M5 21V4h11l-1.5 4L16 12H5"/>',
+    check: '<path d="M5 12.5l4 4L19 7"/>',
+    copy: '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h9"/>',
+    heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    lock: '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  };
+  function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => (t.hidden = true), 2600); }
+  function newId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+  function typeLabel(id) { return (TYPES.find((t) => t.id === id) || TYPES[2]).short; }
+  function ago(iso) {
+    const d = Date.now() - new Date(iso).getTime();
+    if (d < 3600000) return "hace " + Math.max(1, Math.round(d / 60000)) + " min";
+    if (d < DAY) return "hace " + Math.round(d / 3600000) + " h";
+    const days = Math.round(d / DAY);
+    return days === 1 ? "ayer" : "hace " + days + " días";
+  }
+  function daysLeft(iso) { return Math.ceil((new Date(iso).getTime() - Date.now()) / DAY); }
+  function phoneDigits(s) {
+    if (!s) return null;
+    let d = String(s).replace(/[^\d+]/g, "");
+    if (d.startsWith("+")) d = d.slice(1);
+    else if (d.startsWith("00")) d = d.slice(2);
+    else if (d.startsWith("0") && d.length === 11) d = "90" + d.slice(1);
+    else if (d.length === 10 && d.startsWith("5")) d = "90" + d;
+    return d.length >= 10 && d.length <= 15 ? d : null;
+  }
+  async function copy(text, okMsg) {
+    try { await navigator.clipboard.writeText(text); toast(okMsg); }
+    catch { const ta = h("textarea", { style: "position:fixed;opacity:0" }); ta.value = text; document.body.append(ta); ta.select(); try { document.execCommand("copy"); toast(okMsg); } catch { toast("No se pudo copiar. Selecciona el texto a mano."); } ta.remove(); }
+  }
+  // Los anuncios de la comunidad no vencen: siguen hasta que su autora los marca como no disponibles (o se eliminan por reporte).
+  function isActive(l) { return l.status !== "cerrado"; }
+  function norm(s) { return String(s || "").toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+
+  /* ---------- filters UI ---------- */
+  function renderChips() {
+    const tc = $("#typeChips"); tc.replaceChildren();
+    const counts = {}; state.listings.filter(isActive).forEach((l) => (counts[l.type] = (counts[l.type] || 0) + 1));
+    [{ id: "todo", short: "Todo" }, ...TYPES].forEach((t) => {
+      tc.append(h("button", { class: "chip", "aria-pressed": String(state.type === t.id), onclick: () => { state.type = t.id; renderChips(); renderBoard(); } },
+        t.id !== "todo" ? h("span", { class: "sw", style: `background: var(--c-${t.id})` }) : null, t.id === "todo" ? "Todo" : t.label, counts[t.id] ? h("span", { class: "meta" }, String(counts[t.id])) : null));
+    });
+    const rc = $("#recChips"); rc.replaceChildren();
+    ["Todas", ...REC_CATS].forEach((c) => rc.append(h("button", { class: "chip", "aria-pressed": String(state.recCat === c), onclick: () => { state.recCat = c; renderChips(); renderRecs(); } }, c)));
+  }
+  function fillCitySelect(sel, withAll) {
+    sel.replaceChildren();
+    if (withAll) sel.append(h("option", { value: "Todas" }, "Todas las ciudades"));
+    CITIES.forEach((c) => sel.append(h("option", { value: c }, c)));
+  }
+
+  /* ---------- board ---------- */
+  function shareText(l) {
+    const parts = [typeLabel(l.type) + ": " + l.title];
+    const where = [l.area, l.city].filter(Boolean).join(", ");
+    if (where || l.price) parts.push([where, l.price].filter(Boolean).join(" · "));
+    if (SHARE_URL) parts.push("Míralo en Tu.turquía: " + SHARE_URL + "#a-" + l.id);
+    else parts.push("Publicado en Tu.turquía");
+    return parts.join("\n");
+  }
+  function listingCard(l) {
+    const active = isActive(l);
+    const left = daysLeft(l.expiresAt);
+    const mine = state.uid && l.authorId === state.uid;
+    const digits = phoneDigits(l.contact);
+    const expanded = state.expanded.has(l.id);
+    const long = (l.description || "").length > 220;
+    const statusPill = !active ? h("span", { class: "status-pill" }, "Ya no disponible") : null;
+
+    const actions = h("div", { class: "actions" });
+    if (active && digits) {
+      const msg = `Hola${l.name ? " " + l.name : ""}! Vi tu anuncio en Tu.turquía: "${l.title}". ¿Sigue disponible?`;
+      actions.append(h("a", { class: "btn wa", href: `https://wa.me/${digits}?text=${encodeURIComponent(msg)}`, target: "_blank", rel: "noopener" }, icon(ICONS.wa), "Escribir por WhatsApp"));
+    }
+    actions.append(h("button", { class: "btn", onclick: () => copy(shareText(l), SHARE_URL ? "Copiado. Pégalo en tu grupo de WhatsApp." : "Texto copiado.") }, icon(ICONS.link), "Compartir"));
+    if ((mine || state.isOwner) && active) actions.append(h("button", { class: "btn", onclick: () => openEdit(l) }, "Editar"));
+    if (mine && active) actions.append(h("button", { class: "btn", onclick: () => closeListing(l) }, icon(ICONS.check), l.type === "alquiler" ? "Ya se rentó" : l.type === "venta" ? "Ya se vendió" : "Ya no está disponible"));
+    if (mine && !active && l.status !== "cerrado") actions.append(h("button", { class: "btn", onclick: () => renewListing(l) }, "Renovar 30 días"));
+    if (!mine && active) actions.append(h("button", { class: "btn ghost", onclick: () => openReport(l.id) }, icon(ICONS.flag), "Reportar"));
+    if (state.isOwner) actions.append(h("button", { class: "btn ghost danger", onclick: () => deleteListing(l) }, icon(ICONS.trash), "Eliminar"));
+
+    return h("article", { class: "card" + (active ? "" : " closed"), id: "a-" + l.id },
+      h("div", { class: "card-top" },
+        h("span", { class: "cat " + l.type }, typeLabel(l.type)),
+        h("span", { class: "meta" }, ago(l.createdAt), mine ? " · tu anuncio" : ""), statusPill),
+      h("h3", { class: "title" }, l.title),
+      (l.city || l.price) ? h("div", { class: "where" }, l.price ? h("span", { class: "price" }, l.price) : null, h("span", {}, [l.area, l.city].filter(Boolean).join(", "))) : null,
+      gallery(l.photoIds),
+      h("p", { class: "desc" + (long && !expanded ? " clamp" : "") }, l.description),
+      long ? h("button", { class: "more", onclick: () => { expanded ? state.expanded.delete(l.id) : state.expanded.add(l.id); renderBoard(); } }, expanded ? "Ver menos" : "Ver todo") : null,
+      !digits && l.contact ? h("p", { class: "contact-text" }, "Contacto: " + l.contact) : null,
+      linksRow(l.links),
+      l.name ? h("p", { class: "meta" }, "Publica: " + l.name) : null,
+      actions,
+      active ? social(l) : null);
+  }
+  function renderBoard() {
+    // Re-render keeps the comment box the viewer is typing in focused.
+    const ae = document.activeElement, aid = ae && ae.id && ae.id.startsWith("c-") ? ae.id : null;
+    renderBoardInner();
+    if (aid) { const el = document.getElementById(aid); if (el) { el.focus(); const n = el.value.length; try { el.setSelectionRange(n, n); } catch {} } }
+  }
+  function renderBoardInner() {
+    const feed = $("#boardFeed");
+    if (!state.loaded.l) return;
+    const q = norm(state.q);
+    const mine = state.listings.filter((l) => state.uid && l.authorId === state.uid && !isActive(l) && l.status !== "cerrado");
+    const list = state.listings.filter(isActive)
+      .filter((l) => state.type === "todo" || l.type === state.type)
+      .filter((l) => state.city === "Todas" || l.city === state.city || l.city === "Online / toda Turquía")
+      .filter((l) => !q || norm([l.title, l.description, l.area, l.city, l.price].join(" ")).includes(q));
+    updateCounts();
+    feed.replaceChildren();
+    if (!state.listings.filter(isActive).length) {
+      feed.append(h("div", { class: "empty" },
+        h("h3", {}, "El tablón está listo para su primer anuncio"),
+        h("p", {}, "Trabajos, cuartos en alquiler, cosas en venta y servicios entre nosotras. Pega tu mensaje de WhatsApp y queda publicado en segundos."),
+        h("button", { class: "btn primary", onclick: () => requireMember(() => openPost(true), "publicar") }, "Probar con un mensaje de ejemplo")));
+      feed.append(howStrip());
+    } else if (!list.length) {
+      feed.append(h("div", { class: "empty" }, h("h3", {}, "Nada con esos filtros"), h("p", {}, "Prueba con otra ciudad o quita la búsqueda.")));
+    } else list.forEach((l) => feed.append(listingCard(l)));
+    if (mine.length) {
+      feed.append(h("p", { class: "meta", style: "margin-top:8px" }, "Tus anuncios vencidos"));
+      mine.forEach((l) => feed.append(listingCard(l)));
+    }
+    if (!state.deepLinked && location.hash.startsWith("#a-")) {
+      const el = document.getElementById(location.hash.slice(1));
+      if (el) { state.deepLinked = true; el.scrollIntoView({ block: "center" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 3500); }
+    }
+  }
+  function updateCounts() {
+    const c = state.listings.filter(isActive).length, j = state.jobs.filter(jobIsActive).length;
+    $("#nCommunity").textContent = c ? " " + c : "";
+    $("#nJobs").textContent = j ? " " + j : "";
+    $("#nBoard").textContent = c + j || "";
+  }
+  function howStrip() {
+    return h("div", { class: "how" },
+      h("div", {}, h("b", {}, "Pega"), "el mensaje que ya mandaste al grupo."),
+      h("div", {}, h("b", {}, "Revisa"), "el anuncio ordenado y publícalo."),
+      h("div", {}, h("b", {}, "Comparte"), "el enlace en WhatsApp. Aquí no se pierde."));
+  }
+
+  /* ---------- curated jobs ---------- */
+  function fmtDate(iso) { try { return new Date(iso).toLocaleDateString("es", { day: "numeric", month: "short" }); } catch { return ""; } }
+  function jobIsActive(j) { return !j.expiresAt || new Date(j.expiresAt).getTime() > Date.now(); }
+  function safeUrl(u) { return /^https:\/\//i.test(String(u || "")) ? u : null; }
+  function jobShareText(j) {
+    const lines = ["Empleo: " + j.title + (j.company ? " · " + j.company : ""), [j.city, j.mode].filter(Boolean).join(" · ")];
+    lines.push("Español " + (j.spanish === "ventaja" ? "como ventaja" : "requerido") + (j.turkish ? " · Turco: " + j.turkish.toLowerCase() : ""));
+    lines.push(SHARE_URL ? "Detalles en Tu.turquía: " + SHARE_URL + "#j-" + j.id : "Visto en Tu.turquía");
+    return lines.filter(Boolean).join("\n");
+  }
+  function levelPill(lang, lvl) {
+    if (!lvl) return null;
+    const cls = lvl === "No requerido" ? "pill good" : (lvl === "Avanzado" || lvl === "Nativo o fluido") ? "pill warn" : "pill";
+    return h("span", { class: cls }, lang + ": " + lvl.toLowerCase());
+  }
+  function jobCard(j, queued) {
+    const url = safeUrl(j.url);
+    const actions = h("div", { class: "actions" });
+    if (queued) {
+      actions.append(
+        h("button", { class: "btn primary", onclick: () => approveJob(j) }, icon(ICONS.check), "Aprobar y publicar"),
+        h("button", { class: "btn", onclick: () => editQueued(j) }, "Editar"),
+        h("button", { class: "btn ghost danger", onclick: () => discardJob(j) }, "Descartar"));
+      if (url) actions.append(h("a", { class: "btn ghost", href: url, target: "_blank", rel: "noopener" }, "Abrir original"));
+    } else {
+      if (url) actions.append(isMember()
+        ? h("a", { class: "btn primary", href: url, target: "_blank", rel: "noopener" }, "Ver oferta original")
+        : h("button", { class: "btn primary", onclick: () => requireMember(() => { toast("Listo. Ahora toca «Ver oferta original»."); const el = document.getElementById("j-" + j.id); if (el) { el.scrollIntoView({ block: "center" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 3000); } }, "oferta") }, icon(ICONS.lock), "Ver oferta original"));
+      actions.append(h("button", { class: "btn", onclick: () => copy(jobShareText(j), SHARE_URL ? "Copiado. Pégalo en tu grupo de WhatsApp." : "Texto copiado.") }, icon(ICONS.link), "Compartir"));
+      if (state.isOwner) actions.append(h("button", { class: "btn ghost danger", onclick: () => deleteJob(j) }, icon(ICONS.trash), "Quitar"));
+    }
+    return h("article", { class: "card", id: "j-" + j.id },
+      h("div", { class: "card-top" },
+        h("span", { class: "curated" }, queued ? "Por revisar" : "Curado por Tu.turquía"),
+        h("span", { class: "meta" }, j.verifiedAt ? "Verificado el " + fmtDate(j.verifiedAt) : "", j.source ? " · " + j.source : "")),
+      h("h3", { class: "title" }, j.title),
+      h("div", { class: "where" }, h("span", { class: "price" }, j.company || ""), h("span", {}, [j.city, j.mode].filter(Boolean).join(" · "))),
+      h("div", { class: "pills" },
+        h("span", { class: "pill good" }, "Español " + (j.spanish === "ventaja" ? "como ventaja" : "requerido")),
+        levelPill("Inglés", j.english), levelPill("Turco", j.turkish)),
+      j.summary ? h("p", { class: "desc" }, j.summary) : null,
+      j.tip ? h("p", { class: "tip" }, h("b", {}, "Consejo práctico"), j.tip) : null,
+      j.permit && j.permit !== "No lo especifica" ? h("p", { class: "meta" }, "Permiso: " + j.permit) : null,
+      actions);
+  }
+  function renderJobs() {
+    const feed = $("#jobFeed");
+    if (!state.loaded.j) return;
+    const q = norm(state.jq);
+    const active = state.jobs.filter(jobIsActive);
+    const list = active
+      .filter((j) => state.mode === "todos" || j.mode === state.mode)
+      .filter((j) => state.jobCity === "Todas" || j.city === state.jobCity || j.mode === "remoto")
+      .filter((j) => !state.noTurkish || !j.turkish || j.turkish === "No requerido" || j.turkish === "Básico")
+      .filter((j) => !q || norm([j.title, j.company, j.summary, j.city, j.source].join(" ")).includes(q));
+    $("#nJobs").textContent = active.length ? " " + active.length : "";
+    feed.replaceChildren();
+    if (state.isOwner && state.queue.length) {
+      const box = h("div", { class: "queue" }, h("h3", {}, `Por revisar (${state.queue.length})`), h("p", { class: "hint" }, "Solo tú ves esta lista. Revisa cada oferta y aprueba las que valen la pena."));
+      state.queue.forEach((j) => box.append(jobCard(j, true)));
+      feed.append(box);
+    }
+    if (!active.length) {
+      feed.append(h("div", { class: "empty" },
+        h("h3", {}, "Pronto: ofertas donde tu español suma"),
+        h("p", {}, "Cada semana se revisan ofertas en Turquía donde el español es requisito o ventaja: atención al cliente, enseñanza, traducción, turismo y trabajo remoto. Todas con enlace a la oferta original."),
+        state.isOwner ? h("button", { class: "btn primary", onclick: openJob }, "Agregar el primer empleo") : null));
+    } else if (!list.length) {
+      feed.append(h("div", { class: "empty" }, h("h3", {}, "Nada con esos filtros"), h("p", {}, "Prueba con otra modalidad o ciudad.")));
+    } else list.forEach((j) => feed.append(jobCard(j, false)));
+    if (!state.deepLinked && location.hash.startsWith("#j-")) {
+      const el = document.getElementById(location.hash.slice(1));
+      if (el) { state.deepLinked = true; el.scrollIntoView({ block: "center" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 3500); }
+    }
+  }
+  function renderModeChips() {
+    const mc = $("#modeChips"); mc.replaceChildren();
+    MODES.forEach((m) => mc.append(h("button", { class: "chip", "aria-pressed": String(state.mode === m.id), onclick: () => { state.mode = m.id; renderModeChips(); renderJobs(); } }, m.label)));
+  }
+  function setSource(s) {
+    state.source = s;
+    $("#pane-community").hidden = s !== "comunidad";
+    $("#pane-jobs").hidden = s !== "empleos";
+    $("#srcCommunity").setAttribute("aria-pressed", String(s === "comunidad"));
+    $("#srcJobs").setAttribute("aria-pressed", String(s === "empleos"));
+    updateFab();
+  }
+  function updateFab() {
+    const label = state.view === "recs" ? "Recomendar a alguien" : state.source === "empleos" && state.isOwner ? "Agregar empleo curado" : "Publicar anuncio";
+    $("#fabLabel").textContent = label;
+  }
+  function jobFromForm() {
+    return {
+      title: $("#jTitle").value.trim(), company: $("#jCompany").value.trim(), city: $("#jCity2").value, mode: $("#jMode").value,
+      spanish: $("#jSpanish").value, english: $("#jEnglish").value, turkish: $("#jTurkish").value, permit: $("#jPermit").value,
+      summary: $("#jSummary").value.trim(), tip: $("#jTip").value.trim(), url: $("#jUrl").value.trim(), source: $("#jSource").value.trim(),
+    };
+  }
+  function fillJobForm(d) {
+    $("#jobStepPaste").hidden = true; $("#jobForm").hidden = false; $("#jobErr").hidden = true;
+    $("#jTitle").value = d.title || ""; $("#jCompany").value = d.company || "";
+    $("#jCity2").value = CITIES.includes(d.city) ? d.city : "İstanbul";
+    $("#jMode").value = ["remoto", "híbrido", "presencial"].includes(d.mode) ? d.mode : "presencial";
+    $("#jSpanish").value = d.spanish === "ventaja" ? "ventaja" : "requerido";
+    $("#jEnglish").value = LEVELS.includes(d.english) ? d.english : "No requerido";
+    $("#jTurkish").value = LEVELS.includes(d.turkish) ? d.turkish : "No requerido";
+    $("#jPermit").value = PERMITS.includes(d.permit) ? d.permit : PERMITS[0];
+    $("#jSummary").value = d.summary || ""; $("#jTip").value = d.tip || ""; $("#jUrl").value = d.url || $("#jUrlPaste").value.trim(); $("#jSource").value = d.source || "";
+  }
+  function openJob() {
+    state.editingQueueId = null;
+    $("#jobStepPaste").hidden = false; $("#jobForm").hidden = true; $("#jPasteErr").hidden = true;
+    $("#jPublish").textContent = "Publicar empleo";
+    openSheet($("#sheetJob"));
+  }
+  function editQueued(j) { state.editingQueueId = j.id; fillJobForm(j); $("#jPublish").textContent = "Aprobar y publicar"; openSheet($("#sheetJob")); }
+  $("#jManual").addEventListener("click", () => fillJobForm({ summary: $("#jPaste").value.trim().slice(0, 700) }));
+  $("#jBack").addEventListener("click", () => { $("#jobForm").hidden = true; $("#jobStepPaste").hidden = false; });
+  $("#jParse").addEventListener("click", async () => {
+    const text = $("#jPaste").value.trim(), err = $("#jPasteErr");
+    if (text.length < 40) { err.textContent = "Pega la descripción completa de la oferta."; err.hidden = false; return; }
+    err.hidden = true;
+    if (!state.sample) { fillJobForm({ summary: text.slice(0, 700) }); return; }
+    const btn = $("#jParse"); btn.disabled = true; btn.replaceChildren(h("span", { class: "spinner" }), " Ordenando…");
+    const prompt = `Ordena esta oferta de empleo en Turquía para una comunidad de mujeres latinas hispanohablantes. Responde SOLO con un objeto JSON con:
+"title" (puesto en español, máx. 90 caracteres), "company", "city" (una de ${JSON.stringify(CITIES)}), "mode" ("remoto" | "híbrido" | "presencial"),
+"spanish" ("requerido" o "ventaja"), "english" y "turkish" (cada uno una de ${JSON.stringify(LEVELS)}), "permit" (una de ${JSON.stringify(PERMITS)}),
+"summary" (2 a 4 frases en español: qué se hace, requisitos clave, por qué le sirve a una latina en Turquía; sin inventar), "tip" (2 o 3 frases de estrategia para destacar: qué experiencia propia conectar con lo que piden y cómo presentarla, qué dato personal pesa (barrio o ciudad donde vive, idiomas extra, disponibilidad), y un gesto concreto como saludar en turco con una frase lista para copiar; sin inventar datos de la oferta), "source" (sitio de origen si se deduce, o "").
+Si un dato no aparece, usa el valor más neutro ("No requerido", "No lo especifica"). No inventes salarios ni beneficios.
+
+Oferta:
+"""${text.slice(0, 5000)}"""`;
+    try { const d = await state.sample.json(prompt, { modelTier: "quick" }); fillJobForm(d && typeof d === "object" ? d : { summary: text.slice(0, 700) }); }
+    catch { toast("No pudimos ordenarla. Completa los campos a mano."); fillJobForm({ summary: text.slice(0, 700) }); }
+    finally { btn.disabled = false; btn.textContent = "Ordenar oferta"; }
+  });
+  $("#jobForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!needDb()) return;
+    const d = jobFromForm(), err = $("#jobErr");
+    if (!safeUrl(d.url)) { err.textContent = "El enlace debe empezar con https://"; err.hidden = false; return; }
+    const id = state.editingQueueId || newId(), now = new Date();
+    const doc = { ...d, id, verifiedAt: now.toISOString(), createdAt: now.toISOString(), expiresAt: new Date(now.getTime() + LIFE_DAYS * DAY).toISOString() };
+    try {
+      await state.db.collection("jobs").doc(id).set(doc);
+      if (state.editingQueueId) await state.db.collection("jobqueue").doc(id).delete();
+      $("#jPaste").value = ""; $("#jUrlPaste").value = "";
+      closeSheet(); toast("Empleo publicado.");
+    } catch (er) { err.textContent = er && er.code === "not_granted" ? "Solo la administradora puede publicar empleos curados." : "No se pudo publicar."; err.hidden = false; }
+  });
+  async function approveJob(j) {
+    if (!needDb()) return;
+    if (!safeUrl(j.url)) { toast("Esta oferta no tiene un enlace válido. Edítala antes de aprobar."); return; }
+    const now = new Date();
+    const { status, ...rest } = j;
+    try {
+      await state.db.collection("jobs").doc(j.id).set({ ...rest, verifiedAt: now.toISOString(), createdAt: now.toISOString(), expiresAt: new Date(now.getTime() + LIFE_DAYS * DAY).toISOString() });
+      await state.db.collection("jobqueue").doc(j.id).delete();
+      toast("Publicado en Empleos curados.");
+    } catch { toast("No se pudo aprobar."); }
+  }
+  async function discardJob(j) { try { await state.db.collection("jobqueue").doc(j.id).delete(); toast("Descartado."); } catch { toast("No se pudo descartar."); } }
+  async function deleteJob(j) { try { await state.db.collection("jobs").doc(j.id).delete(); toast("Empleo quitado."); } catch { toast("No se pudo quitar."); } }
+
+  /* ---------- recs ---------- */
+  function vouchersOf(r) {
+    const v = new Set(Array.isArray(r.vouchers) ? r.vouchers : []);
+    (state.vouches || []).forEach((x) => { if (x.recId === r.id) v.add(x.uid); });
+    return [...v];
+  }
+  function recCard(r) {
+    const vouchers = vouchersOf(r);
+    const n = vouchers.length;
+    const mine = state.uid && vouchers.includes(state.uid);
+    const digits = phoneDigits(r.contact);
+    const actions = h("div", { class: "actions" },
+      h("button", { class: "btn vouch", "aria-pressed": String(!!mine), onclick: () => toggleVouch(r) }, icon(ICONS.heart), mine ? "La recomiendas" : "Yo también la recomiendo"),
+      digits ? h("a", { class: "btn wa", href: `https://wa.me/${digits}`, target: "_blank", rel: "noopener" }, icon(ICONS.wa), "WhatsApp") : null,
+      r.contact ? h("button", { class: "btn ghost", onclick: () => copy(r.contact, "Contacto copiado.") }, icon(ICONS.copy), "Copiar contacto") : null,
+      state.isOwner ? h("button", { class: "btn ghost danger", onclick: () => deleteRec(r) }, icon(ICONS.trash), "Eliminar") : null);
+    return h("article", { class: "card" },
+      h("div", { class: "card-top" }, h("span", { class: "cat rec" }, r.category), h("span", { class: "meta" }, r.city)),
+      h("h3", { class: "title" }, r.name),
+      h("p", { class: "desc" }, r.why),
+      r.languages ? h("p", { class: "meta" }, "Habla: " + r.languages) : null,
+      r.contact ? h("p", { class: "contact-text" }, r.contact) : null,
+      h("p", { class: "rec-by" }, n <= 1 ? "1 paisana la recomienda" : `${n} paisanas la recomiendan`),
+      actions);
+  }
+  function renderRecs() {
+    const feed = $("#recFeed");
+    if (!state.loaded.r) return;
+    const q = norm(state.rq);
+    const list = state.recs
+      .filter((r) => state.recCat === "Todas" || r.category === state.recCat)
+      .filter((r) => state.recCity === "Todas" || r.city === state.recCity)
+      .filter((r) => !q || norm([r.name, r.why, r.category, r.city, r.languages].join(" ")).includes(q))
+      .sort((a, b) => vouchersOf(b).length - vouchersOf(a).length);
+    $("#nRecs").textContent = state.recs.length || "";
+    feed.replaceChildren();
+    if (!state.recs.length) {
+      feed.append(h("div", { class: "empty" },
+        h("h3", {}, "La lista de confianza empieza contigo"),
+        h("p", {}, "¿Una pediatra que habla inglés? ¿Una abogada para el ikamet? ¿Un técnico honesto? Recomiéndala una vez y la encuentran todas."),
+        h("button", { class: "btn primary", onclick: () => requireMember(openRec, "recomendar") }, "Recomendar a alguien")));
+    } else if (!list.length) feed.append(h("div", { class: "empty" }, h("h3", {}, "Nada con esos filtros"), h("p", {}, "Prueba con otra categoría o ciudad.")));
+    else list.forEach((r) => feed.append(recCard(r)));
+  }
+
+  /* ---------- moderation ---------- */
+  function renderMod() {
+    const feed = $("#modFeed"); feed.replaceChildren();
+    const open = state.reports.filter((r) => !r.resolved);
+    $("#modCount").textContent = open.length;
+    feed.append(h("div", { class: "card-top" }, h("h2", { class: "title", style: "font-size:1.4rem" }, "Reportes"), h("button", { class: "btn", onclick: () => setView("board") }, "Volver al tablón")));
+    if (!open.length) feed.append(h("div", { class: "empty" }, h("h3", {}, "Sin reportes pendientes"), h("p", {}, "Cuando alguien reporte un anuncio, aparece aquí.")));
+    open.forEach((rep) => {
+      const l = state.listings.find((x) => x.id === rep.listingId);
+      feed.append(h("article", { class: "card" },
+        h("div", { class: "card-top" }, h("span", { class: "cat servicio" }, rep.reason), h("span", { class: "meta" }, ago(rep.createdAt))),
+        h("h3", { class: "title" }, l ? l.title : "Anuncio ya eliminado"),
+        l ? h("p", { class: "desc clamp" }, l.description) : null,
+        h("div", { class: "actions" },
+          l ? h("button", { class: "btn danger", onclick: async () => { await deleteListing(l); await resolveReport(rep); } }, icon(ICONS.trash), "Eliminar anuncio") : null,
+          h("button", { class: "btn", onclick: () => resolveReport(rep) }, "Descartar reporte"))));
+    });
+    feed.append(h("h2", { class: "title", style: "font-size:1.4rem;margin-top:18px" }, `Registradas (${state.members.length})`),
+      h("p", { class: "hint" }, "Solo tú ves estos datos. Úsalos para confirmar que cada persona es real."));
+    if (!state.members.length) feed.append(h("div", { class: "empty" }, h("h3", {}, "Aún no hay registros"), h("p", {}, "Cuando alguien se una, aparece aquí con su ciudad y su teléfono.")));
+    state.members.forEach((m) => {
+      const d = phoneDigits(m.phone);
+      feed.append(h("article", { class: "card" },
+        h("div", { class: "card-top" }, h("h3", { class: "title", style: "font-size:1.05rem" }, m.name || "Sin nombre"), h("span", { class: "meta" }, m.createdAt ? "Se unió " + ago(m.createdAt) : "")),
+        h("p", { class: "meta", style: "margin:0" }, [m.city, m.since ? "En Turquía: " + String(m.since).toLowerCase() : ""].filter(Boolean).join(" · ")),
+        h("div", { class: "actions" },
+          d ? h("a", { class: "btn wa", href: "https://wa.me/" + d, target: "_blank", rel: "noopener" }, icon(ICONS.wa), String(m.phone)) : (m.phone ? h("span", { class: "contact-text" }, String(m.phone)) : null),
+          m.email ? h("button", { class: "btn ghost", onclick: () => copy(String(m.email), "Email copiado.") }, icon(ICONS.copy), String(m.email)) : null)));
+    });
+  }
+
+  /* ---------- views ---------- */
+  function setView(v) {
+    state.view = v;
+    $("#view-board").hidden = v !== "board";
+    $("#view-recs").hidden = v !== "recs";
+    $("#view-mod").hidden = v !== "mod";
+    $("#story").hidden = v !== "board";
+    document.querySelectorAll(".tab").forEach((t) => t.setAttribute("aria-selected", String(t.dataset.view === v)));
+    updateFab();
+    $(".fab-bar").hidden = v === "mod";
+    if (v === "mod") renderMod();
+    try { localStorage.setItem("tt_view", v === "mod" ? "board" : v); } catch {}
+  }
+
+  /* ---------- sheets ---------- */
+  let openSheetEl = null;
+  function openSheet(el) { closeSheet(); openSheetEl = el; $("#scrim").hidden = false; el.hidden = false; const f = el.querySelector("textarea, input"); if (f) setTimeout(() => f.focus(), 50); }
+  function closeSheet() { if (openSheetEl) openSheetEl.hidden = true; openSheetEl = null; $("#scrim").hidden = true; }
+  $("#scrim").addEventListener("click", closeSheet);
+  document.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", closeSheet));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSheet(); });
+
+  function needDb() {
+    if (!state.db) { toast("No pudimos conectarnos. Revisa tu internet."); return false; }
+    if (!state.uid) { openLogin(); return false; }
+    return true;
+  }
+
+  function openPost(example) {
+    state.editingId = null;
+    $("#postTitle").textContent = "Publicar anuncio"; $("#publishBtn").textContent = "Publicar anuncio"; $("#backToPaste").hidden = false;
+    $("#stepPaste").hidden = false; $("#stepForm").hidden = true; $("#pasteErr").hidden = true;
+    if (example === true) $("#pasteBox").value = EXAMPLE;
+    else { try { $("#pasteBox").value = localStorage.getItem("tt_draft") || ""; } catch {} }
+    openSheet($("#sheetPost"));
+  }
+  function renderTypePick() {
+    const tp = $("#typePick"); tp.replaceChildren();
+    TYPES.forEach((t) => tp.append(h("button", { type: "button", "aria-pressed": String(state.formType === t.id), onclick: () => { state.formType = t.id; renderTypePick(); } }, t.short)));
+  }
+  function showForm(data, fromAi) {
+    $("#stepPaste").hidden = true; $("#stepForm").hidden = false; $("#formErr").hidden = true;
+    $("#aiNote").hidden = !fromAi;
+    state.formType = TYPES.some((t) => t.id === data.type) ? data.type : "venta";
+    renderTypePick();
+    $("#fTitle").value = data.title || "";
+    $("#fDesc").value = data.description || $("#pasteBox").value || "";
+    $("#fCity").value = CITIES.includes(data.city) ? data.city : (state.city !== "Todas" ? state.city : "İstanbul");
+    $("#fArea").value = data.area || "";
+    $("#fPrice").value = data.price || "";
+    $("#fName").value = data.name || (state.member && state.member.name) || "";
+    $("#fContact").value = data.contact || "";
+    state.formPhotos = []; renderThumbs();
+    $("#fLinks").value = parseLinks(Array.isArray(data.links) ? data.links.join("\n") : "").join("\n");
+    $("#fTitle").focus();
+  }
+
+  /* ---------- fotos, enlaces, reacciones, comentarios ---------- */
+  const MAX_PHOTOS = 5;
+  const EMOJIS = ["❤️", "🙌", "😍", "🔥", "😂", "🙏"];
+  state.formPhotos = []; state.photoCache = {}; state.photoPending = {};
+  state.reactions = []; state.comments = []; state.profiles = {}; state.cdrafts = {}; state.cexpanded = new Set();
+
+  function compressImage(file) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        let max = 1080, q = 0.78, out = "";
+        for (let tries = 0; tries < 8; tries++) {
+          const s = Math.min(1, max / Math.max(img.width, img.height));
+          const c = document.createElement("canvas");
+          c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+          out = c.toDataURL("image/jpeg", q);
+          if (out.length < 200000) break;
+          if (q > 0.55) q -= 0.1; else max = Math.round(max * 0.8);
+        }
+        URL.revokeObjectURL(url);
+        out.length < 240000 ? resolve(out) : reject(new Error("too_big"));
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("bad_image")); };
+      img.src = url;
+    });
+  }
+  function renderThumbs() {
+    const t = $("#thumbs"); t.replaceChildren();
+    state.formPhotos.forEach((src, i) => t.append(h("div", { class: "thumb" }, h("img", { src, alt: "Foto " + (i + 1) }),
+      h("button", { type: "button", "aria-label": "Quitar foto", onclick: () => { state.formPhotos.splice(i, 1); renderThumbs(); } }, "×"))));
+    if (state.formPhotos.length < MAX_PHOTOS) t.append(h("label", { class: "addphoto", for: "fPhotos", title: "Agregar fotos" }, "+"));
+    $("#photoHint").textContent = state.formPhotos.length ? `${state.formPhotos.length} de ${MAX_PHOTOS} fotos` : "Se achican solas para que carguen rápido.";
+  }
+  $("#fPhotos").addEventListener("change", async (e) => {
+    const files = [...e.target.files].filter((f) => f.type.startsWith("image/")).slice(0, MAX_PHOTOS - state.formPhotos.length);
+    e.target.value = "";
+    if (!files.length) return;
+    $("#photoHint").textContent = "Preparando fotos…";
+    for (const f of files) {
+      try { state.formPhotos.push(await compressImage(f)); } catch { toast("Una foto no se pudo cargar. Prueba con otra."); }
+    }
+    renderThumbs();
+  });
+  function parseLinks(text) {
+    const out = [];
+    String(text || "").split(/[\s,]+/).forEach((raw) => {
+      let u = raw.trim().replace(/[).,;]+$/, "");
+      if (!u) return;
+      if (/^http:\/\//i.test(u)) u = "https://" + u.slice(7);
+      else if (!/^https:\/\//i.test(u) && /^(www\.)?[a-z0-9-]+(\.[a-z0-9-]+)+(\/\S*)?$/i.test(u)) u = "https://" + u;
+      try { const p = new URL(u); if (p.protocol === "https:" && !out.includes(p.href)) out.push(p.href); } catch {}
+    });
+    return out.slice(0, 4);
+  }
+  function linkInfo(u) {
+    let host = ""; try { host = new URL(u).hostname.replace(/^www\./, ""); } catch {}
+    if (/instagram\.com$/.test(host)) return "Instagram";
+    if (/(youtube\.com|youtu\.be)$/.test(host)) return "YouTube";
+    if (/tiktok\.com$/.test(host)) return "TikTok";
+    if (/(facebook\.com|fb\.com)$/.test(host)) return "Facebook";
+    if (/linkedin\.com$/.test(host)) return "LinkedIn";
+    return host || "Enlace";
+  }
+  function linksRow(links) {
+    const ls = (Array.isArray(links) ? links : []).filter((u) => /^https:\/\//i.test(u)).slice(0, 4);
+    if (!ls.length) return null;
+    return h("div", { class: "links" }, ls.map((u) => h("a", { class: "link-chip", href: u, target: "_blank", rel: "noopener" }, icon(ICONS.link), linkInfo(u))));
+  }
+  function loadPhoto(pid, img) {
+    if (state.photoCache[pid]) { img.src = state.photoCache[pid]; return; }
+    if (!state.db) return;
+    if (!state.photoPending[pid]) state.photoPending[pid] = state.db.doc("photos/" + pid).get().then((s) => {
+      const d = s.exists ? s.data() : null;
+      if (d && typeof d.data === "string" && d.data.startsWith("data:image/")) state.photoCache[pid] = d.data;
+      return state.photoCache[pid];
+    }).catch(() => null);
+    state.photoPending[pid].then((src) => { if (src) img.src = src; });
+  }
+  function gallery(ids) {
+    if (!Array.isArray(ids) || !ids.length) return null;
+    const g = h("div", { class: "gallery" + (ids.length === 1 ? " one" : "") });
+    ids.slice(0, MAX_PHOTOS).forEach((pid, i) => {
+      const img = h("img", { alt: "Foto " + (i + 1) + " del anuncio", loading: "lazy" });
+      loadPhoto(pid, img);
+      img.addEventListener("click", () => { if (img.src) { $("#lightboxImg").src = img.src; $("#lightbox").hidden = false; } });
+      g.append(img);
+    });
+    return g;
+  }
+  $("#lightbox").addEventListener("click", () => { $("#lightbox").hidden = true; });
+  function personName(id) { if (id && id === state.uid) return "Tú"; const p = state.profiles[id]; return (p && p.name) || "Paisana"; }
+  async function resolveProfiles(ids) {
+    const missing = [...new Set(ids)].filter((id) => id && !state.profiles[id]);
+    if (!missing.length || !state.user) return;
+    try { Object.assign(state.profiles, await state.user.profiles(missing.slice(0, 64))); renderBoard(); } catch {}
+  }
+  function social(l) {
+    const rs = state.reactions.filter((r) => r.listingId === l.id);
+    const mine = rs.find((r) => r.uid === state.uid);
+    const row = h("div", { class: "react-row", role: "group", "aria-label": "Reacciones" });
+    EMOJIS.forEach((e) => {
+      const n = rs.filter((r) => r.emoji === e).length;
+      row.append(h("button", { class: "react", "aria-pressed": String(!!mine && mine.emoji === e), "aria-label": "Reaccionar con " + e, onclick: () => toggleReact(l, e, mine) }, e, n ? h("span", { class: "n" }, String(n)) : null));
+    });
+    const cs = state.comments.filter((c) => c.listingId === l.id).sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+    const open = state.cexpanded.has(l.id);
+    const shown = open ? cs : cs.slice(-2);
+    const list = h("div", { class: "comments" });
+    if (cs.length > 2 && !open) list.append(h("button", { class: "more", onclick: () => { state.cexpanded.add(l.id); renderBoard(); } }, `Ver los ${cs.length} comentarios`));
+    shown.forEach((c) => list.append(h("div", { class: "cmt" },
+      h("div", { class: "body" }, h("b", {}, personName(c.authorId)), c.text, h("span", { class: "when" }, ago(c.createdAt))),
+      (c.authorId === state.uid || state.isOwner) ? h("button", { class: "x", "aria-label": "Borrar comentario", onclick: () => deleteComment(c) }, "×") : null)));
+    const input = h("input", { id: "c-" + l.id, maxlength: "140", placeholder: "Comenta algo corto…", "aria-label": "Escribe un comentario" });
+    input.value = state.cdrafts[l.id] || "";
+    input.addEventListener("input", () => { state.cdrafts[l.id] = input.value; });
+    const form = h("form", { class: "cmt-form", onsubmit: (ev) => { ev.preventDefault(); addComment(l, input.value); } }, input, h("button", { class: "btn", type: "submit" }, "Enviar"));
+    return h("div", { class: "social" }, row, list, form);
+  }
+  function needUser() { if (!needDb()) return false; if (!isMember()) { state.pendingAction = null; openJoin("comentar"); return false; } return true; }
+  async function toggleReact(l, e, mine) {
+    if (!needUser()) return;
+    const ref = state.db.collection("reactions").doc(l.id + "_" + state.uid);
+    try {
+      if (mine && mine.emoji === e) await ref.delete();
+      else await ref.set({ listingId: l.id, uid: state.uid, emoji: e, createdAt: new Date().toISOString() });
+    } catch { toast("No se pudo guardar tu reacción."); }
+  }
+  async function addComment(l, text) {
+    if (!needUser()) return;
+    const t = String(text || "").trim().slice(0, 140);
+    if (!t) return;
+    const id = newId();
+    try {
+      await state.db.collection("comments").doc(id).set({ id, listingId: l.id, authorId: state.uid, text: t, createdAt: new Date().toISOString() });
+      state.cdrafts[l.id] = ""; const el = document.getElementById("c-" + l.id); if (el) el.value = "";
+    } catch { toast("No se pudo enviar el comentario."); }
+  }
+  async function deleteComment(c) { try { await state.db.collection("comments").doc(c.id).delete(); } catch { toast("No se pudo borrar."); } }
+  $("#tryExample").addEventListener("click", () => { $("#pasteBox").value = EXAMPLE; $("#pasteBox").focus(); });
+  $("#pasteBox").addEventListener("input", (e) => { try { localStorage.setItem("tt_draft", e.target.value); } catch {} });
+  $("#manualBtn").addEventListener("click", () => showForm({ description: $("#pasteBox").value }, false));
+  $("#backToPaste").addEventListener("click", () => { $("#stepForm").hidden = true; $("#stepPaste").hidden = false; });
+
+  $("#parseBtn").addEventListener("click", async () => {
+    const text = $("#pasteBox").value.trim();
+    const err = $("#pasteErr");
+    if (text.length < 15) { err.textContent = "Pega tu mensaje completo para poder ordenarlo."; err.hidden = false; return; }
+    err.hidden = true;
+    if (!state.sample) { showForm({ description: text, links: parseLinks(text) }, false); return; }
+    const btn = $("#parseBtn"); btn.disabled = true; btn.replaceChildren(h("span", { class: "spinner" }), " Ordenando…");
+    const prompt = `Eres asistente de un tablón de anuncios para mujeres latinas que viven en Turquía. Convierte este mensaje de WhatsApp en un anuncio.
+Responde SOLO con un objeto JSON con estas claves:
+- "type": una de "trabajo" (ofertas o búsquedas de empleo), "alquiler" (vivienda, habitación, local), "venta" (cosas en venta o regalo), "servicio" (alguien ofrece un servicio: clases, comida, belleza, traducción, cuidado…).
+- "title": título claro en español, máximo 70 caracteres, sin emojis.
+- "description": el mensaje limpio en español, conservando todos los detalles útiles (precio, condiciones, horarios). Quita saludos largos y emojis repetidos. Máximo 900 caracteres.
+- "city": una de ${JSON.stringify(CITIES)} o "" si no se menciona. Normaliza nombres (Izmir → İzmir, Estambul → İstanbul).
+- "area": barrio o zona si se menciona, si no "".
+- "price": precio tal como aparece (ej. "9.500 TL"), o "".
+- "contact": teléfono, usuario de Instagram o correo tal como aparece, o "".
+- "name": nombre de quien publica si firma, o "".
+- "links": lista de enlaces que aparezcan en el mensaje (Instagram, YouTube, sitios web), o [].
+No inventes datos que no estén en el mensaje.
+
+Mensaje:
+"""${text.slice(0, 3000)}"""`;
+    try {
+      const data = await state.sample.json(prompt, { modelTier: "quick" });
+      showForm(data && typeof data === "object" ? data : { description: text }, true);
+    } catch (e) {
+      if (e && e.code === "not_granted") toast("Sin permiso para ordenar automáticamente. Completa los campos a mano.");
+      else if (e && e.code === "rate_limited") toast("Muchas solicitudes seguidas. Completa los campos a mano o intenta en un rato.");
+      else toast("No pudimos ordenarlo. Revisa y completa los campos a mano.");
+      showForm({ description: text }, false);
+    } finally { btn.disabled = false; btn.textContent = "Ordenar mi anuncio"; }
+  });
+
+  $("#stepForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!needDb()) return;
+    const title = $("#fTitle").value.trim(), description = $("#fDesc").value.trim(), contact = $("#fContact").value.trim();
+    const ferr = $("#formErr");
+    if (!title || !description || !contact) { ferr.textContent = "Faltan el título, la descripción o el contacto."; ferr.hidden = false; return; }
+    const now = new Date();
+    const editing = state.editingId ? state.listings.find((x) => x.id === state.editingId) : null;
+    const id = editing ? editing.id : newId();
+    const fields = {
+      type: state.formType, title, description, contact,
+      city: $("#fCity").value, area: $("#fArea").value.trim(), price: $("#fPrice").value.trim(), name: $("#fName").value.trim(),
+      links: parseLinks($("#fLinks").value), photoIds: state.formPhotos.map((_, i) => id + "-p" + i),
+    };
+    const btn = $("#publishBtn"); btn.disabled = true;
+    try {
+      for (let i = 0; i < state.formPhotos.length; i++) {
+        const pid = id + "-p" + i;
+        if (state.photoCache[pid] === state.formPhotos[i]) continue; // foto sin cambios
+        btn.textContent = `Subiendo fotos ${i + 1}/${state.formPhotos.length}…`;
+        await state.db.collection("photos").doc(pid).set({ listingId: id, idx: i, data: state.formPhotos[i] });
+        state.photoCache[pid] = state.formPhotos[i];
+      }
+      btn.textContent = editing ? "Guardando…" : "Publicando…";
+      if (editing) {
+        await state.db.collection("listings").doc(id).update({ ...fields, updatedAt: now.toISOString() });
+        const old = Array.isArray(editing.photoIds) ? editing.photoIds : [];
+        for (const pid of old.filter((p) => !fields.photoIds.includes(p))) { try { await state.db.collection("photos").doc(pid).delete(); } catch {} delete state.photoCache[pid]; }
+      } else {
+        await state.db.collection("listings").doc(id).set({ id, ...fields, status: "activo", createdAt: now.toISOString(), expiresAt: new Date(now.getTime() + LIFE_DAYS * DAY).toISOString(), authorId: state.uid || "" });
+      }
+      state.formPhotos = [];
+      if (!editing) { try { localStorage.removeItem("tt_draft"); } catch {} $("#pasteBox").value = ""; }
+      state.editingId = null;
+      closeSheet(); setView("board"); state.type = "todo"; state.city = "Todas"; $("#cityFilter").value = "Todas"; renderChips(); renderBoard();
+      toast(editing ? "Cambios guardados." : "Publicado. Toca Compartir para pegarlo en tu grupo.");
+    } catch (err) {
+      ferr.textContent = err && err.code === "not_granted" ? "Tu acceso a esta página es solo de lectura. Pide a la administradora acceso para publicar." : "No se pudo guardar. Intenta de nuevo.";
+      ferr.hidden = false;
+    } finally { btn.disabled = false; btn.textContent = state.editingId ? "Guardar cambios" : "Publicar anuncio"; }
+  });
+
+  async function openEdit(l) {
+    state.editingId = l.id;
+    $("#postTitle").textContent = "Editar anuncio";
+    $("#backToPaste").hidden = true;
+    openSheet($("#sheetPost"));
+    showForm(l, false);
+    $("#publishBtn").textContent = "Guardar cambios";
+    const ids = Array.isArray(l.photoIds) ? l.photoIds : [];
+    if (!ids.length) return;
+    $("#photoHint").textContent = "Cargando fotos…";
+    const srcs = await Promise.all(ids.map((pid) => {
+      if (state.photoCache[pid]) return state.photoCache[pid];
+      return state.db.doc("photos/" + pid).get().then((s) => { const d = s.exists ? s.data() : null; if (d && d.data) state.photoCache[pid] = d.data; return d && d.data; }).catch(() => null);
+    }));
+    if (state.editingId !== l.id) return;
+    state.formPhotos = srcs.filter(Boolean).slice(0, MAX_PHOTOS);
+    renderThumbs();
+  }
+
+  async function closeListing(l) { if (!needDb()) return; try { await state.db.collection("listings").doc(l.id).update({ status: "cerrado" }); toast("Marcado como no disponible. Gracias por avisar."); } catch { toast("No se pudo actualizar."); } }
+  async function renewListing(l) { if (!needDb()) return; try { await state.db.collection("listings").doc(l.id).update({ expiresAt: new Date(Date.now() + LIFE_DAYS * DAY).toISOString(), status: "activo" }); toast("Renovado por 30 días."); } catch { toast("No se pudo renovar."); } }
+  async function deleteListing(l) {
+    if (!needDb()) return;
+    try {
+      await state.db.collection("listings").doc(l.id).delete();
+      for (const pid of (Array.isArray(l.photoIds) ? l.photoIds : [])) { try { await state.db.collection("photos").doc(pid).delete(); } catch {} }
+      toast("Anuncio eliminado.");
+    } catch { toast("No se pudo eliminar."); }
+  }
+
+  function openReport(id) { requireMember(() => { state.reportingId = id; openSheet($("#sheetReport")); }, "reportar"); }
+  $("#repSubmit").addEventListener("click", async () => {
+    if (!needDb()) return;
+    const id = newId();
+    try {
+      await state.db.collection("reports").doc(id).set({ id, listingId: state.reportingId, reason: $("#repReason").value, createdAt: new Date().toISOString(), by: state.uid || "", resolved: false });
+      closeSheet(); toast("Reporte enviado. Gracias por cuidar el tablón.");
+    } catch { toast("No se pudo enviar el reporte."); }
+  });
+  async function resolveReport(rep) { try { await state.db.collection("reports").doc(rep.id).update({ resolved: true }); } catch { toast("No se pudo actualizar el reporte."); } }
+
+  function openRec() { $("#recErr").hidden = true; openSheet($("#sheetRec")); }
+  $("#recForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!needDb()) return;
+    const name = $("#rName").value.trim(), why = $("#rWhy").value.trim();
+    if (!name || !why) return;
+    const id = newId();
+    try {
+      await state.db.collection("recs").doc(id).set({ id, name, why, category: $("#rCat").value, city: $("#rCity2").value, languages: $("#rLang").value.trim(), contact: $("#rContact").value.trim(), vouchers: state.uid ? [state.uid] : [], createdAt: new Date().toISOString(), authorId: state.uid || "" });
+      e.target.reset(); closeSheet(); setView("recs"); toast("Recomendación guardada.");
+    } catch (err) {
+      const r = $("#recErr"); r.textContent = err && err.code === "not_granted" ? "Tu acceso es solo de lectura. Pide acceso para recomendar." : "No se pudo guardar. Intenta de nuevo."; r.hidden = false;
+    }
+  });
+  async function toggleVouch(r) {
+    if (!needDb()) return;
+    if (!isMember()) { requireMember(() => toggleVouch(r), "recomendar"); return; }
+    // Cada aval es su propio registro: así nadie necesita permiso para editar la recomendación de otra.
+    const ref = state.db.collection("vouches").doc(r.id + "_" + state.uid);
+    const mine = (state.vouches || []).some((x) => x.recId === r.id && x.uid === state.uid);
+    try {
+      if (mine) await ref.delete();
+      else if (!(Array.isArray(r.vouchers) && r.vouchers.includes(state.uid))) await ref.set({ recId: r.id, uid: state.uid, createdAt: new Date().toISOString() });
+    } catch { toast("No se pudo actualizar."); }
+  }
+  async function deleteRec(r) { try { await state.db.collection("recs").doc(r.id).delete(); toast("Recomendación eliminada."); } catch { toast("No se pudo eliminar."); } }
+
+  /* ---------- registro light ---------- */
+  // Explorar es libre. Publicar, comentar, reaccionar, recomendar, reportar y abrir ofertas originales piden un registro corto.
+  const SINCE = ["Me estoy mudando", "Menos de 6 meses", "6 meses a 1 año", "1 a 3 años", "3 a 5 años", "Más de 5 años"];
+  const MEMBER_CITIES = CITIES.filter((c) => !c.startsWith("Online"));
+  const REAL = " Es solo para asegurarnos de que somos una comunidad real. Toma menos de un minuto.";
+  const JOIN_LEADS = {
+    default: "Mirar es libre. Para publicar, comentar y abrir las ofertas de trabajo, cuéntanos quién eres." + REAL,
+    publicar: "Antes de publicar tu anuncio, cuéntanos quién eres." + REAL,
+    recomendar: "Antes de recomendar, cuéntanos quién eres." + REAL,
+    comentar: "Para comentar y reaccionar, cuéntanos quién eres." + REAL,
+    reportar: "Para enviar un reporte, cuéntanos quién eres." + REAL,
+    oferta: "Las ofertas originales son para la comunidad registrada. Cuéntanos quién eres." + REAL,
+    editar: "Puedes actualizar tus datos cuando quieras. Tu teléfono y tu email solo los ve la administradora.",
+  };
+  MEMBER_CITIES.forEach((c) => $("#mCity").append(h("option", { value: c }, c)));
+  function isMember() { return state.isOwner || !!(state.member && state.member.name && state.member.phone); }
+  function renderSincePick() {
+    const p = $("#sincePick"); p.replaceChildren();
+    SINCE.forEach((s) => p.append(h("button", { type: "button", "aria-pressed": String(state.sinceVal === s), onclick: () => { state.sinceVal = s; renderSincePick(); } }, s)));
+  }
+  function openJoin(reason) {
+    const m = state.member || {};
+    $("#joinTitle").textContent = state.member ? "Tus datos" : "¡Bienvenida a Tu.turquía!";
+    $("#joinLead").textContent = JOIN_LEADS[reason] || JOIN_LEADS.default;
+    $("#mName").value = m.name || "";
+    $("#mCity").value = MEMBER_CITIES.includes(m.city) ? m.city : MEMBER_CITIES.includes(state.city) ? state.city : "İstanbul";
+    state.sinceVal = SINCE.includes(m.since) ? m.since : ""; renderSincePick();
+    $("#mPhone").value = m.phone || state.authPhone || ""; $("#mEmail").value = m.email || ""; $("#mRules").checked = !!m.acceptedRules;
+    $("#joinErr").hidden = true; $("#joinBtn").textContent = state.member ? "Guardar" : "Entrar a la comunidad";
+    openSheet($("#sheetJoin"));
+  }
+  function requireMember(action, reason) {
+    if (isMember()) { action(); return; }
+    if (!state.db) { toast("No pudimos conectarnos. Revisa tu internet."); return; }
+    if (!state.uid) { openLogin(); return; }
+    state.pendingAction = action; openJoin(reason);
+  }
+  function updateMemberUI() {
+    const b = $("#meBtn");
+    if (!state.db) { b.hidden = true; return; }
+    b.hidden = false;
+    if (!state.uid) { b.textContent = "Entrar"; return; }
+    b.textContent = state.member && state.member.name ? "Hola, " + String(state.member.name).split(" ")[0] : "Completar registro";
+  }
+  $("#meBtn").addEventListener("click", () => { state.pendingAction = null; if (!state.uid) openLogin(); else openJoin(state.member ? "editar" : "default"); });
+
+  /* ---------- entrar con el teléfono (código por SMS) ---------- */
+  function toE164(v) {
+    let d = String(v || "").replace(/[^\d+]/g, "");
+    if (d.startsWith("00")) d = "+" + d.slice(2);
+    if (!d.startsWith("+")) d = "+90" + d.replace(/^0/, "");
+    return /^\+\d{10,15}$/.test(d) ? d : null;
+  }
+  // El código por SMS se activa cuando Twilio esté listo: cambia a true.
+  const PHONE_LOGIN = false;
+  function openLogin() {
+    if (!window.ttSupabase) { toast("No pudimos conectarnos. Revisa tu internet."); return; }
+    $("#loginPhoneForm").hidden = !PHONE_LOGIN; $("#loginCodeForm").hidden = true; $("#lErr").hidden = true; $("#gErr").hidden = true;
+    openSheet($("#sheetLogin"));
+  }
+  $("#googleBtn").addEventListener("click", async () => {
+    const b = $("#googleBtn"); b.disabled = true;
+    try { sessionStorage.setItem("tt_welcome", "1"); } catch {}
+    const { error } = await window.ttSupabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + location.pathname } });
+    if (error) { b.disabled = false; $("#gErr").textContent = "No pudimos abrir Google. Intenta de nuevo en un momento."; $("#gErr").hidden = false; }
+  });
+  $("#loginPhoneForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const er = $("#lErr"), phone = toE164($("#lPhone").value);
+    if (!phone) { er.textContent = "Revisa tu número. Ejemplo: +90 532 123 45 67"; er.hidden = false; return; }
+    er.hidden = true;
+    const b = $("#lSend"); b.disabled = true; b.textContent = "Enviando…";
+    const { error } = await window.ttSupabase.auth.signInWithOtp({ phone });
+    b.disabled = false; b.textContent = "Enviarme el código";
+    if (error) {
+      er.textContent = /rate|seconds|security purposes/i.test(error.message || "") ? "Pediste un código hace poco. Espera un minuto e intenta de nuevo." : "No pudimos enviar el código. Revisa el número e intenta de nuevo.";
+      er.hidden = false; return;
+    }
+    state.loginPhone = phone;
+    $("#lSentTo").textContent = "Te lo enviamos por SMS a " + phone + ". Puede tardar unos segundos.";
+    $("#loginPhoneForm").hidden = true; $("#loginCodeForm").hidden = false; $("#lErr2").hidden = true; $("#lCode").value = ""; $("#lCode").focus();
+  });
+  $("#lBack").addEventListener("click", () => { $("#loginCodeForm").hidden = true; $("#loginPhoneForm").hidden = false; });
+  $("#loginCodeForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const er = $("#lErr2"), token = $("#lCode").value.replace(/\D/g, "");
+    if (token.length !== 6) { er.textContent = "Escribe los 6 dígitos del código."; er.hidden = false; return; }
+    const b = $("#lVerify"); b.disabled = true; b.textContent = "Verificando…";
+    const { error } = await window.ttSupabase.auth.verifyOtp({ phone: state.loginPhone, token, type: "sms" });
+    if (error) { b.disabled = false; b.textContent = "Entrar"; er.textContent = "Ese código no es correcto o ya venció. Revísalo o pide uno nuevo."; er.hidden = false; return; }
+    try { sessionStorage.setItem("tt_welcome", "1"); } catch {}
+    location.reload();
+  });
+  $("#logoutBtn").addEventListener("click", async () => { try { await window.ttSupabase.auth.signOut(); } catch {} location.reload(); });
+  $("#joinForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const err = $("#joinErr");
+    const fail = (t) => { err.textContent = t; err.hidden = false; };
+    const name = $("#mName").value.trim(), phone = $("#mPhone").value.trim(), email = $("#mEmail").value.trim();
+    if (!name) return fail("Cuéntanos tu nombre.");
+    if (!state.sinceVal) return fail("Elige hace cuánto vives en Turquía.");
+    if (!phoneDigits(phone)) return fail("Revisa tu teléfono. Si no es turco, incluye el código de país (ej. +57…).");
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("Ese email no parece válido. Puedes dejarlo vacío.");
+    if (!$("#mRules").checked) return fail("Marca la casilla para continuar.");
+    if (!needDb() || !state.uid) return;
+    const now = new Date().toISOString();
+    const doc = { id: state.uid, name, city: $("#mCity").value, since: state.sinceVal, phone, email, acceptedRules: true, createdAt: (state.member && state.member.createdAt) || now, updatedAt: now };
+    const btn = $("#joinBtn"); btn.disabled = true;
+    try {
+      await state.db.collection("members").doc(state.uid).set(doc);
+      // Perfil público: solo el nombre y la ciudad, para mostrar quién comenta.
+      try { await state.db.collection("profiles").doc(state.uid).set({ id: state.uid, name, city: doc.city }); state.profiles[state.uid] = { id: state.uid, name }; } catch {}
+      const first = !state.member;
+      state.member = doc; updateMemberUI(); renderJobs();
+      closeSheet(); toast(first ? `¡Bienvenida, ${name.split(" ")[0]}! Ya eres parte de la comunidad.` : "Datos actualizados.");
+      const next = state.pendingAction; state.pendingAction = null;
+      if (next) setTimeout(next, 250);
+    } catch (er) {
+      fail(er && (er.code === "not_granted" || er.code === "invalid_argument") ? "Tu acceso a esta página es de solo lectura, así que no podemos guardar tu registro. Pídele acceso a la administradora." : "No se pudo guardar. Intenta de nuevo.");
+    } finally { btn.disabled = false; }
+  });
+
+  /* ---------- wiring ---------- */
+  document.querySelectorAll(".tab").forEach((t) => t.addEventListener("click", () => setView(t.dataset.view)));
+  $("#fab").addEventListener("click", () => (state.view === "recs" ? requireMember(openRec, "recomendar") : state.source === "empleos" && state.isOwner ? openJob() : requireMember(() => openPost(), "publicar")));
+  $("#srcCommunity").addEventListener("click", () => setSource("comunidad"));
+  $("#srcJobs").addEventListener("click", () => setSource("empleos"));
+  fillCitySelect($("#jobCity"), true); fillCitySelect($("#jCity2"), false);
+  LEVELS.forEach((l) => { $("#jEnglish").append(h("option", { value: l }, l)); $("#jTurkish").append(h("option", { value: l }, l)); });
+  PERMITS.forEach((p) => $("#jPermit").append(h("option", { value: p }, p)));
+  $("#jobCity").addEventListener("change", (e) => { state.jobCity = e.target.value; renderJobs(); });
+  $("#noTurkish").addEventListener("change", (e) => { state.noTurkish = e.target.checked; renderJobs(); });
+  $("#searchJobs").addEventListener("input", (e) => { state.jq = e.target.value; renderJobs(); });
+  renderModeChips();
+  if (location.hash.startsWith("#j-")) setSource("empleos");
+  $("#storyPost").addEventListener("click", () => requireMember(() => openPost(), "publicar"));
+  $("#storyJobs").addEventListener("click", () => { setView("board"); setSource("empleos"); $("#view-board").scrollIntoView({ behavior: "smooth", block: "start" }); });
+  // Las burbujas ya se ven completas; al aparecer en pantalla solo dan un pequeño salto.
+  if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("pop"); io.unobserve(en.target); } }), { threshold: 0.6 });
+    document.querySelectorAll(".chat .bubble").forEach((b) => io.observe(b));
+  }
+
+  /* ---------- el punto saltarín: de "Tu." a la í, y de ahí al final de "A la mano." ---------- */
+  let hopping = false;
+  function playDotHop() {
+    if (hopping || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const s = $("#wmDot"), i = $("#wmI"), e = $("#heroDot");
+    if (!s || !i || !e || !e.animate || $("#view-board").hidden) return;
+    const r0 = s.getBoundingClientRect(), ri = i.getBoundingClientRect(), r2 = e.getBoundingClientRect();
+    if (!r2.width || r2.top > innerHeight || r2.bottom < 0) return;
+    hopping = true;
+    const ox = scrollX, oy = scrollY, D = r2.width, s0 = r0.width / D;
+    const c0 = { x: r0.left + r0.width / 2 + ox, y: r0.top + r0.height / 2 + oy };
+    const ci = { x: ri.left + ri.width / 2 + ox, y: ri.top + ri.height * 0.08 + oy - r0.width / 2 };
+    const c2 = { x: r2.left + D / 2 + ox, y: r2.top + r2.height / 2 + oy };
+    const T = (c, k, sx = 1, sy = 1) => `translate(${c.x - D / 2}px, ${c.y - D / 2}px) scale(${k * sx}, ${k * sy})`;
+    const sun = getComputedStyle(s).color, acc = getComputedStyle(e).color;
+    const up = "cubic-bezier(.2,.7,.4,1)", down = "cubic-bezier(.6,0,.9,.5)";
+    const fly = h("div", { class: "fly", "aria-hidden": "true" });
+    fly.style.width = fly.style.height = D + "px";
+    document.body.append(fly);
+    e.style.visibility = "hidden";
+    s.animate([{ transform: "scale(1)" }, { transform: "scale(0)", offset: 0.04 }, { transform: "scale(0)", offset: 0.82 }, { transform: "scale(1.3)", offset: 0.92 }, { transform: "scale(1)" }], { duration: 2000 });
+    const anim = fly.animate([
+      { transform: T(c0, s0), backgroundColor: sun, offset: 0, easing: up },
+      { transform: T({ x: (c0.x + ci.x) / 2, y: Math.min(c0.y, ci.y) - 34 }, s0 * 1.1), backgroundColor: sun, offset: 0.16, easing: down },
+      { transform: T(ci, s0, 1.45, 0.6), backgroundColor: sun, offset: 0.3, easing: up },
+      { transform: T({ x: ci.x, y: ci.y - 16 }, s0), backgroundColor: sun, offset: 0.38, easing: down },
+      { transform: T(ci, s0, 1.25, 0.75), backgroundColor: sun, offset: 0.45, easing: up },
+      { transform: T({ x: (ci.x + c2.x) / 2 + 16, y: Math.min(ci.y, c2.y) - 70 }, (s0 + 1) / 2), backgroundColor: sun, offset: 0.66, easing: down },
+      { transform: T(c2, 1, 1.35, 0.62), backgroundColor: acc, offset: 0.88, easing: "ease-out" },
+      { transform: T(c2, 1), backgroundColor: acc, offset: 1 },
+    ], { duration: 1800, fill: "forwards" });
+    const done = () => {
+      e.style.visibility = ""; fly.remove(); hopping = false;
+      e.animate([{ transform: "scale(1)" }, { transform: "scale(1.3)" }, { transform: "scale(1)" }], { duration: 260 });
+    };
+    anim.onfinish = done; anim.oncancel = done;
+  }
+  $("#wordmark").addEventListener("click", playDotHop);
+  (async () => {
+    let seen = false;
+    try { seen = sessionStorage.getItem("tt_hop") === "1"; sessionStorage.setItem("tt_hop", "1"); } catch {}
+    if (seen) return;
+    try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch {}
+    setTimeout(() => { if (scrollY < 150) playDotHop(); }, 450);
+  })();
+  $("#modBtn").addEventListener("click", () => setView("mod"));
+  fillCitySelect($("#cityFilter"), true); fillCitySelect($("#recCity"), true); fillCitySelect($("#fCity"), false); fillCitySelect($("#rCity2"), false);
+  REC_CATS.forEach((c) => $("#rCat").append(h("option", { value: c }, c)));
+  $("#cityFilter").addEventListener("change", (e) => { state.city = e.target.value; try { localStorage.setItem("tt_city", state.city); } catch {} renderBoard(); });
+  $("#recCity").addEventListener("change", (e) => { state.recCity = e.target.value; renderRecs(); });
+  $("#searchBoard").addEventListener("input", (e) => { state.q = e.target.value; renderBoard(); });
+  $("#searchRecs").addEventListener("input", (e) => { state.rq = e.target.value; renderRecs(); });
+  try { const c = localStorage.getItem("tt_city"); if (c && (c === "Todas" || CITIES.includes(c))) { state.city = c; $("#cityFilter").value = c; } } catch {}
+  try { const v = localStorage.getItem("tt_view"); if (v === "recs") setView("recs"); } catch {}
+  renderChips();
+
+  /* ---------- capabilities ---------- */
+  (async () => {
+    if (!window.claude || typeof window.claude.use !== "function") { offline(); return; }
+    const [db, user, sample] = await Promise.all([claude.use("db"), claude.use("user"), claude.use("sample")]);
+    state.sample = sample;
+    if (!sample) {
+      // Sin IA por ahora: el mensaje pegado pasa directo al formulario.
+      $("#parseBtn").textContent = "Continuar";
+      const lead = document.querySelector("#stepPaste .lead");
+      if (lead) lead.textContent = "Pega el mismo mensaje que mandaste (o vas a mandar) al grupo de WhatsApp. En el siguiente paso completas ciudad, precio y contacto.";
+    }
+    if (user) {
+      state.user = user;
+      try { state.uid = await user.id(); } catch {}
+      try { state.isOwner = await user.isOwner(); } catch {}
+      try { const me = await user.me(); state.authPhone = (me && me.phone) || ""; } catch {}
+      $("#modBtn").hidden = !state.isOwner;
+    }
+    if (!db) { offline(); return; }
+    state.db = db;
+    let welcome = false;
+    try { welcome = sessionStorage.getItem("tt_welcome") === "1"; sessionStorage.removeItem("tt_welcome"); } catch {}
+    if (state.uid) db.collection("members").doc(state.uid).onSnapshot((s) => {
+      state.member = s.exists ? s.data() : null; updateMemberUI(); renderJobs();
+      if (welcome) { welcome = false; if (!state.member && !state.isOwner) openJoin("default"); else toast("¡Hola de nuevo!"); }
+    }, () => {});
+    state.vouches = [];
+    db.collection("vouches").limit(3000).onSnapshot((snap) => { state.vouches = snap.docs.map((d) => d.data()).filter((x) => x && x.recId); renderRecs(); }, () => {});
+    updateMemberUI();
+    db.collection("listings").orderBy("createdAt", "desc").limit(300).onSnapshot((snap) => {
+      state.listings = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((l) => l.title && l.expiresAt);
+      state.loaded.l = true; renderChips(); renderBoard(); if (state.view === "mod") renderMod();
+    }, () => { state.loaded.l = true; state.listings = []; renderBoard(); });
+    db.collection("reactions").limit(3000).onSnapshot((snap) => {
+      state.reactions = snap.docs.map((d) => d.data()).filter((r) => r && r.listingId && r.emoji);
+      renderBoard();
+    });
+    db.collection("comments").orderBy("createdAt", "desc").limit(1500).onSnapshot((snap) => {
+      state.comments = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((c) => c.listingId && c.text);
+      renderBoard();
+      resolveProfiles(state.comments.map((c) => c.authorId));
+    });
+    db.collection("recs").orderBy("createdAt", "desc").limit(300).onSnapshot((snap) => {
+      state.recs = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((r) => r.name);
+      state.loaded.r = true; renderRecs();
+    }, () => { state.loaded.r = true; state.recs = []; renderRecs(); });
+    db.collection("jobs").orderBy("createdAt", "desc").limit(300).onSnapshot((snap) => {
+      state.jobs = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((j) => j.title);
+      state.loaded.j = true; updateCounts(); renderJobs();
+    }, () => { state.loaded.j = true; state.jobs = []; renderJobs(); });
+    updateFab();
+    if (state.isOwner) {
+      db.collection("members").orderBy("createdAt", "desc").limit(500).onSnapshot((snap) => {
+        state.members = snap.docs.map((d) => d.data()).filter((m) => m && m.name);
+        if (state.view === "mod") renderMod();
+      }, () => {});
+      db.collection("jobqueue").orderBy("createdAt", "desc").limit(100).onSnapshot((snap) => {
+        state.queue = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((j) => j.title);
+        renderJobs();
+      });
+      db.collection("reports").orderBy("createdAt", "desc").limit(200).onSnapshot((snap) => {
+        state.reports = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+        $("#modCount").textContent = state.reports.filter((r) => !r.resolved).length;
+        if (state.view === "mod") renderMod();
+      });
+    }
+  })();
+  function offline() {
+    $("#offlineNotice").hidden = false;
+    state.loaded.l = state.loaded.r = state.loaded.j = true; renderBoard(); renderRecs(); renderJobs();
+  }
+})();
+</script>
+
+</body></html>
