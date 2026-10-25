@@ -213,10 +213,11 @@ button { cursor: pointer; }
 .chat-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--sun); display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; color: var(--sun-ink); font-size: .85rem; flex: none; }
 .chat-name { font-weight: 700; font-size: .92rem; line-height: 1.2; }
 .chat-sub { font-size: .75rem; color: var(--muted); }
-.bubble { max-width: 84%; background: var(--surface); border-radius: 4px 12px 12px 12px; padding: 5px 9px 4px; box-shadow: 0 1px 1px rgba(22,31,69,.08); min-width: 0; overflow-wrap: anywhere; }
+.bubble { max-width: 90%; background: var(--surface); border-radius: 4px 12px 12px 12px; padding: 5px 9px 4px; box-shadow: 0 1px 1px rgba(22,31,69,.08); min-width: 0; overflow-wrap: anywhere; }
 .bubble.me { align-self: flex-end; background: var(--bubble-me); border-radius: 12px 4px 12px 12px; }
-.bubble .who { font-size: .76rem; font-weight: 700; display: block; margin-bottom: 0; line-height: 1.3; }
-.bubble .txt { font-size: .9rem; line-height: 1.32; }
+.bubble .who { font-size: .7rem; font-style: normal; font-weight: 700; display: block; margin-bottom: 0; line-height: 1.3; }
+.bubble .txt { font-size: .8rem; line-height: 1.3; font-style: italic; }
+.chat-note { margin: 12px 0 0; font-size: .82rem; font-style: italic; color: var(--muted); }
 .bubble .time { float: right; font-size: .66rem; color: var(--muted); margin: 6px 0 0 10px; line-height: 1; font-variant-numeric: tabular-nums; }
 .bubble::after { content: ""; display: block; clear: both; }
 .bubble .tr { display: block; font-size: .78rem; color: var(--muted); font-style: italic; }
@@ -338,6 +339,7 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
     <p class="story-kicker">¿Te suena?</p>
     <h2 class="story-title" id="storyTitle">Un día cualquiera en el grupo de latinas</h2>
 
+    <p class="chat-note">Ejemplo de lo que sucede en un grupo de WhatsApp</p>
     <div class="chat" role="img" aria-label="Conversación de ejemplo en un grupo de WhatsApp donde las oportunidades se pierden entre cientos de mensajes">
       <div class="chat-head">
         <div class="chat-avatar">LT</div>
@@ -351,22 +353,15 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
 
       <div class="burial">
         <span class="burial-count">+ 381 mensajes</span>
-        <div class="burial-noise"><span>🎂 ¡Feliz cumple, Majo!</span><span>¿Mañana hay pazar en Bostanlı?</span><span>[sticker]</span><span>jajaja 😂</span><span>¿Alguien va al concierto?</span></div>
+        <div class="burial-noise"><span>🎂 ¡Feliz cumple, Majo!</span><span>[sticker]</span><span>jajaja 😂</span></div>
       </div>
 
       <div class="day-chip">Jueves</div>
       <div class="bubble"><span class="who" style="color: var(--c-trabajo)">Mariela</span><span class="txt">¿Alguien conoce un abogado que hable español? Necesito una asesoría urgente 🙏</span><span class="time">10:02</span></div>
       <div class="bubble"><span class="who" style="color: var(--c-venta)">Sofi</span><span class="txt">Creo que alguien recomendó una hace meses… búscalo arriba</span><span class="time">10:09</span></div>
-      <div class="bubble me"><span class="txt">¿Alguien tiene el número de la que rentaba el cuarto en Bornova?</span><span class="time">11:40</span></div>
-      <div class="bubble"><span class="who" style="color: var(--c-alquiler)">Valentina</span><span class="txt">Ya lo rentó ayer 😩</span><span class="time">11:52</span></div>
-      <div class="bubble me"><span class="txt">Nooo, qué bronca, justo buscaba eso</span><span class="time">11:53</span></div>
       <div class="bubble"><span class="who" style="color: var(--c-servicio)">Ana</span><span class="txt">Paola, ¿todavía reciben CV para lo del español nativo con visa? 🙏</span><span class="time">13:15</span></div>
       <div class="bubble"><span class="who" style="color: var(--c-venta)">Paola</span><span class="txt">Ay no, cerraron el martes 😕 Ya escogieron</span><span class="time">13:22</span></div>
-      <div class="bubble"><span class="who" style="color: var(--c-trabajo)">Caro</span><span class="txt">¿Alguien guardó el número del doctor que hablaba inglés? El que recomendaron el otro día…</span><span class="time">15:20</span></div>
-      <div class="bubble"><span class="who" style="color: var(--c-servicio)">Ana</span><span class="txt">¿Quién era la que vendía el coche de bebé? Ya no lo encuentro y lo necesito :(</span><span class="time">16:05</span></div>
-      <div class="bubble"><span class="who" style="color: var(--c-venta)">Sofi</span><span class="txt">Sube, sube… no lo encuentro</span><span class="time">16:11</span></div>
-      <div class="bubble me"><span class="txt">Silencié el grupo una semana y me perdí la oferta de trabajo 🥲</span><span class="time">19:47</span></div>
-      <div class="bubble"><span class="who" style="color: var(--c-alquiler)">Lu</span><span class="txt">¿Alguien guardó el contacto de la señora que hace arepas?</span><span class="time">20:30</span></div>    </div>
+    </div>
 
     <div class="twist">
       <h2 class="twist-title">Fırsat kaçtı<span class="x">.</span></h2>
