@@ -1,8 +1,16 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Se acabó el «búscalo arriba». Trabajos, alquileres, ventas, servicios y recomendadas de la comunidad latina en Turquía, ordenadas y a mano.">
-<meta property="og:title" content="Tu.turquía · A la mano">
-<meta property="og:description" content="Las oportunidades de la comunidad latina en Turquía, ordenadas y a mano. Que no se pierdan a 381 mensajes de distancia.">
+<meta name="description" content="Ofertas de trabajo filtradas para ti, servicios de la comunidad y recomendados de confianza. No vuelvas a perderte una oportunidad por no ver el mensaje a tiempo.">
+<meta property="og:title" content="Tu.turquía · Un granito de arena para nuestra comunidad">
+<meta property="og:description" content="Ofertas de trabajo filtradas para ti, servicios de la comunidad y recomendados de confianza. No vuelvas a perderte una oportunidad por no ver el mensaje a tiempo.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://tuturquia.com/">
+<meta property="og:site_name" content="Tu.turquía">
+<meta property="og:locale" content="es_LA">
+<meta property="og:image" content="https://tuturquia.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tu.turquía · A la mano. Trabajo, servicios y recomendados en Turquía.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#00757C">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Tu.turquía</title>
@@ -291,6 +299,15 @@ button { cursor: pointer; }
 .btn.google { justify-content: center; padding: 12px 16px; font-size: 1rem; background: var(--surface); border: 1.5px solid var(--line); }
 .btn.google:hover { border-color: var(--accent); }
 .btn.google svg { width: 20px; height: 20px; }
+.w-k { font-weight: 700; margin: 4px 0 6px; }
+.w-box { background: var(--bg); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+.w-big { margin: 0; font-weight: 700; font-size: 1rem; }
+.w-sm { margin: 2px 0 0; font-size: .75rem; color: var(--muted); }
+.w-row { display: flex; flex-wrap: wrap; gap: 5px; }
+.w-row:empty { display: none; }
+.w-chip { font-size: .78rem; font-weight: 600; border-radius: 999px; padding: 3px 10px; background: var(--surface); border: 1px solid var(--line); }
+.w-chip.city { background: var(--c-trabajo-bg); border-color: var(--c-trabajo-bg); color: var(--accent); }
+.w-ln { margin: 8px 0 0; font-size: .92rem; }
 .lightbox { position: fixed; inset: 0; z-index: 70; background: rgba(5,15,17,.9); display: grid; place-items: center; padding: 16px; cursor: zoom-out; }
 .lightbox img { max-width: 100%; max-height: 100%; border-radius: 8px; }
 
@@ -649,6 +666,28 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
     <p class="err" id="lErr2" hidden></p>
     <div class="sheet-actions"><button type="button" class="btn ghost" id="lBack">Cambiar número</button><button class="btn primary" type="submit" id="lVerify">Entrar</button></div>
   </form>
+</div>
+
+<!-- Sheet: bienvenida (solo la primera visita) -->
+<div class="sheet" id="sheetWelcome" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" hidden>
+  <div class="grabber"></div>
+  <div class="sheet-head"><h2 id="welcomeTitle">¡Hola, qué bueno tenerte aquí! 👋</h2><button class="close" data-close aria-label="Cerrar">×</button></div>
+  <p class="lead">Tu.turquía es una iniciativa que quiere poner su granito de arena para seguir fortaleciendo a nuestra comunidad en Turquía. Que nunca más se te escape una oportunidad por no ver el mensaje a tiempo.</p>
+  <p class="w-k">Hoy encuentras:</p>
+  <div class="w-box">
+    <p class="w-big" id="wJobs">💼 Ofertas de trabajo filtradas para ti</p>
+    <p class="w-sm" id="wCityLbl" hidden>Por ciudad</p>
+    <div class="w-row" id="wCities"></div>
+    <p class="w-sm" id="wKindLbl" hidden>Tipos de trabajo</p>
+    <div class="w-row" id="wKinds"></div>
+  </div>
+  <p class="w-ln" id="wComm">🏠 Servicios y anuncios de nuestra comunidad</p>
+  <p class="w-ln" id="wRecs">🤝 Recomendados de confianza</p>
+  <div class="sheet-actions" style="margin-top:12px">
+    <button class="btn ghost" id="wExplore">Explorar</button>
+    <button class="btn primary" id="wJobsBtn">Ver ofertas de trabajo</button>
+  </div>
+  <p class="hint" style="text-align:center; margin-top:8px">Es gratis. Para mirar no necesitas cuenta.</p>
 </div>
 
 <div class="toast" id="toast" hidden></div>
@@ -1869,7 +1908,7 @@ Mensaje:
     updateMemberUI();
     db.collection("listings").orderBy("createdAt", "desc").limit(300).onSnapshot((snap) => {
       state.listings = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((l) => l.title && l.expiresAt);
-      state.loaded.l = true; renderChips(); renderBoard(); if (state.view === "mod") renderMod();
+      state.loaded.l = true; renderChips(); renderBoard(); if (state.view === "mod") renderMod(); maybeWelcome();
     }, () => { state.loaded.l = true; state.listings = []; renderBoard(); });
     db.collection("reactions").limit(3000).onSnapshot((snap) => {
       state.reactions = snap.docs.map((d) => d.data()).filter((r) => r && r.listingId && r.emoji);
@@ -1886,7 +1925,7 @@ Mensaje:
     }, () => { state.loaded.r = true; state.recs = []; renderRecs(); });
     db.collection("jobs").orderBy("createdAt", "desc").limit(300).onSnapshot((snap) => {
       state.jobs = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((j) => j.title);
-      state.loaded.j = true; updateCounts(); renderJobs();
+      state.loaded.j = true; updateCounts(); renderJobs(); maybeWelcome();
     }, () => { state.loaded.j = true; state.jobs = []; renderJobs(); });
     updateFab();
     if (state.isOwner) {
@@ -1905,6 +1944,49 @@ Mensaje:
       });
     }
   })();
+  /* ---------- bienvenida: solo primera visita, no si llega por el enlace de una oferta ---------- */
+  const JOB_KINDS = [
+    ["Enseñanza", /profesor|docente|clases|ensenanza|ogretmen|teacher/],
+    ["Salud y turismo", /clinica|paciente|hospital|dental|salud|turismo|hotel|capilar/],
+    ["Ventas y atención", /venta|atencion|cliente|call center|asesor|representante|ejecutiv|comercial/],
+    ["Traducción", /traduc|interprete|translat/],
+  ];
+  let welcomeDone = false;
+  function welcomeAllowed() {
+    if (location.hash.startsWith("#a-") || location.hash.startsWith("#j-")) return false;
+    try { if (sessionStorage.getItem("tt_welcome") === "1") return false; } catch {}
+    try { return localStorage.getItem("tt_seen_welcome") !== "1"; } catch { return false; }
+  }
+  function maybeWelcome() {
+    if (welcomeDone || !state.loaded.j || !state.loaded.l) return;
+    welcomeDone = true;
+    if (!welcomeAllowed()) return;
+    try { localStorage.setItem("tt_seen_welcome", "1"); } catch {}
+    const act = state.listings.filter(isActive);
+    const jobs = [...state.jobs.filter(jobIsActive), ...act.filter((l) => l.type === "trabajo")];
+    const comm = act.filter((l) => l.type !== "trabajo").length;
+    if (jobs.length) $("#wJobs").textContent = `💼 ${jobs.length} ${jobs.length === 1 ? "oferta" : "ofertas"} de trabajo filtradas para ti`;
+    const byCity = {};
+    jobs.forEach((j) => {
+      const k = j.mode === "remoto" || j.city === "Online / toda Turquía" ? "Desde casa" : ["İstanbul", "İzmir", "Ankara", "Antalya", "Bursa", "Muğla"].includes(j.city) ? j.city : "Otras";
+      byCity[k] = (byCity[k] || 0) + 1;
+    });
+    const cities = Object.entries(byCity).filter(([k]) => k !== "Otras").sort((a, b) => b[1] - a[1]);
+    let other = byCity["Otras"] || 0;
+    cities.slice(3).forEach(([, n]) => (other += n));
+    const shown = cities.slice(0, 3); if (other) shown.push(["Otras", other]);
+    $("#wCities").replaceChildren(...shown.map(([k, n]) => h("span", { class: "w-chip city" }, `${k} ${n}`)));
+    $("#wCityLbl").hidden = !shown.length;
+    const kinds = JOB_KINDS.map(([name, re]) => [name, jobs.filter((j) => re.test(norm([j.title, j.summary, j.description].join(" ")))).length]).filter(([, n]) => n > 0);
+    $("#wKinds").replaceChildren(...kinds.map(([k, n]) => h("span", { class: "w-chip" }, `${k} ${n}`)));
+    $("#wKindLbl").hidden = !kinds.length;
+    if (comm) $("#wComm").textContent = `🏠 ${comm} ${comm === 1 ? "anuncio" : "anuncios"} de servicios, ventas y alquileres de nuestra comunidad`;
+    if (state.recs.length) $("#wRecs").textContent = `🤝 ${state.recs.length} ${state.recs.length === 1 ? "recomendado" : "recomendados"} de confianza`;
+    setTimeout(() => { if (!openSheetEl) openSheet($("#sheetWelcome")); }, 700);
+  }
+  $("#wExplore").addEventListener("click", closeSheet);
+  $("#wJobsBtn").addEventListener("click", () => { closeSheet(); goNav("jobs"); $(".nav-q").scrollIntoView({ behavior: "smooth", block: "start" }); });
+
   function offline() {
     $("#offlineNotice").hidden = false;
     state.loaded.l = state.loaded.r = state.loaded.j = true; renderBoard(); renderRecs(); renderJobs();
