@@ -85,6 +85,25 @@ button { cursor: pointer; }
 .tagline { margin: 12px 0 0; font-size: 1.1rem; font-weight: 600; max-width: 40ch; text-wrap: balance; line-height: 1.35; }
 .wink { margin: 8px 0 0; color: var(--muted); font-size: .88rem; }
 .wink i { font-style: normal; font-weight: 700; color: var(--ink); }
+.nav-q { font-family: var(--font-display); font-size: 1.15rem; margin: 22px 0 10px; letter-spacing: -0.01em; }
+.nav-cards { display: flex; flex-direction: column; gap: 8px; }
+.nav-card { background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; transition: border-color .15s, box-shadow .15s; }
+.nav-card.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--c-trabajo-bg); }
+.nav-main { width: 100%; border: 0; background: none; text-align: left; display: flex; align-items: center; gap: 12px; padding: 12px 14px 6px; color: inherit; }
+.nav-ico { font-size: 1.5rem; line-height: 1; flex: none; }
+.nav-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.nav-title { font-family: var(--font-display); font-weight: 800; font-size: 1.08rem; letter-spacing: -0.01em; }
+.nav-card.on .nav-title { color: var(--accent); }
+.nav-sub { font-size: .86rem; color: var(--muted); line-height: 1.3; }
+.nav-n { flex: none; font-size: .78rem; font-weight: 700; color: var(--muted); background: var(--surface-2); border-radius: 999px; padding: 2px 9px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.nav-n:empty { display: none; }
+.nav-more { padding: 0 14px 10px 50px; }
+.nav-more summary { cursor: pointer; font-size: .8rem; font-weight: 700; color: var(--accent); list-style: none; display: inline-flex; align-items: center; gap: 4px; }
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::before { content: "▸"; transition: transform .15s; display: inline-block; }
+.nav-more[open] summary::before { transform: rotate(90deg); }
+.nav-more p { margin: 6px 0 0; font-size: .86rem; line-height: 1.45; color: var(--ink); }
+.src-tag { display: inline-flex; align-items: center; gap: 4px; font-size: .72rem; font-weight: 700; padding: 3px 9px; border-radius: 6px; background: var(--surface-2); color: var(--muted); }
 .seg { display: flex; gap: 6px; margin-top: 16px; }
 .seg button { flex: 1; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 9px 8px; font-weight: 700; font-size: .88rem; color: var(--muted); }
 .seg button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
@@ -297,18 +316,37 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
       <p class="tagline">Se acabó el “búscalo arriba”. Aquí tienes las oportunidades de la comunidad latina en Turquía, ordenadas y a mano.</p>
       <p class="wink">Como dicen aquí: <i>fırsat kaçmasın</i>, que la oportunidad no se escape.</p>
     </div>
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" id="tab-board" aria-selected="true" data-view="board">Oportunidades<span class="n" id="nBoard"></span></button>
-      <button class="tab" role="tab" id="tab-recs" aria-selected="false" data-view="recs">Recomendadas<span class="n" id="nRecs"></span></button>
+    <h2 class="nav-q">¿Qué buscas hoy?</h2>
+    <div class="nav-cards" role="tablist" aria-label="Secciones">
+      <div class="nav-card" data-nav="jobs">
+        <button class="nav-main" role="tab" id="nav-jobs" aria-selected="false">
+          <span class="nav-ico" aria-hidden="true">💼</span>
+          <span class="nav-txt"><span class="nav-title">Trabajo en Turquía</span><span class="nav-sub">Ofertas donde tu español suma, presenciales o desde casa.</span></span>
+          <span class="nav-n" id="nJobs"></span>
+        </button>
+        <details class="nav-more"><summary>¿Qué hay aquí?</summary><p>Cada semana revisamos ofertas de trabajo en Turquía y remotas donde hablar español es requisito o ventaja. Cada una dice qué idiomas piden, en qué ciudad es y tiene el enlace a la oferta original para postularte. También verás trabajos que comparten de la comunidad.</p></details>
+      </div>
+      <div class="nav-card" data-nav="community">
+        <button class="nav-main" role="tab" id="nav-community" aria-selected="false">
+          <span class="nav-ico" aria-hidden="true">🏠</span>
+          <span class="nav-txt"><span class="nav-title">Alquileres, ventas y servicios</span><span class="nav-sub">Lo que ofrecen y buscan las latinas de la comunidad.</span></span>
+          <span class="nav-n" id="nCommunity"></span>
+        </button>
+        <details class="nav-more"><summary>¿Qué hay aquí?</summary><p>Cuartos y apartamentos en alquiler, cosas en venta y servicios entre nosotras: comida, clases, belleza, cuidado de niños y más. Escribes directo por WhatsApp a quien publica. Si tienes algo para ofrecer, publícalo y comparte el enlace en tu grupo.</p></details>
+      </div>
+      <div class="nav-card" data-nav="recs">
+        <button class="nav-main" role="tab" id="nav-recs" aria-selected="false">
+          <span class="nav-ico" aria-hidden="true">🤝</span>
+          <span class="nav-txt"><span class="nav-title">Recomendadas</span><span class="nav-sub">Doctoras, abogadas y técnicos de confianza.</span></span>
+          <span class="nav-n" id="nRecs"></span>
+        </button>
+        <details class="nav-more"><summary>¿Qué hay aquí?</summary><p>Esa pediatra que habla inglés, la abogada para el ikamet o el técnico honesto que siempre preguntamos en el grupo. Las recomienda alguien de la comunidad y otras pueden sumar su "yo también la recomiendo".</p></details>
+      </div>
     </div>
   </header>
 
   <!-- OPORTUNIDADES -->
   <section id="view-board">
-    <div class="seg" role="group" aria-label="Origen">
-      <button id="srcCommunity" aria-pressed="true">De la comunidad<span class="n" id="nCommunity"></span></button>
-      <button id="srcJobs" aria-pressed="false">Empleos curados<span class="n" id="nJobs"></span></button>
-    </div>
 
     <div id="pane-jobs" hidden>
       <div class="filters">
@@ -377,7 +415,7 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
 
     <div class="story-cta">
       <button class="btn primary" id="storyPost">Publicar mi anuncio</button>
-      <button class="btn" id="storyJobs">Ver empleos curados</button>
+      <button class="btn" id="storyJobs">Ver ofertas de trabajo</button>
     </div>
   </section>
 
@@ -466,6 +504,12 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
       <label for="fContact">WhatsApp o contacto</label>
       <input id="fContact" required maxlength="80" placeholder="+90 5XX XXX XX XX">
       <p class="hint">Si es un número, el anuncio tendrá un botón para escribirte por WhatsApp.</p>
+    </div>
+    <div class="field ai-note" id="onBehalfBox" hidden>
+      <label for="fOnBehalf">Publicar en nombre de (opcional, solo administradora)</label>
+      <input id="fOnBehalf" maxlength="40" placeholder="Nombre de quien ofrece, ej. Caro">
+      <label class="consent" style="margin-top:6px"><input type="checkbox" id="fPermiso"> Tengo su permiso para publicarlo y mostrar este contacto.</label>
+      <p class="hint">Se verá como "Compartido por Tu.turquía de parte de…". Si es de Trabajo, vence solo a los 30 días.</p>
     </div>
     <p class="err" id="formErr" hidden></p>
     <div class="sheet-actions">
@@ -813,14 +857,14 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
     catch { const ta = h("textarea", { style: "position:fixed;opacity:0" }); ta.value = text; document.body.append(ta); ta.select(); try { document.execCommand("copy"); toast(okMsg); } catch { toast("No se pudo copiar. Selecciona el texto a mano."); } ta.remove(); }
   }
   // Los anuncios de la comunidad no vencen: siguen hasta que su autora los marca como no disponibles (o se eliminan por reporte).
-  function isActive(l) { return l.status !== "cerrado"; }
+  function isActive(l) { return l.status !== "cerrado" && !(l.autoExpire && new Date(l.expiresAt).getTime() <= Date.now()); }
   function norm(s) { return String(s || "").toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g, ""); }
 
   /* ---------- filters UI ---------- */
   function renderChips() {
     const tc = $("#typeChips"); tc.replaceChildren();
     const counts = {}; state.listings.filter(isActive).forEach((l) => (counts[l.type] = (counts[l.type] || 0) + 1));
-    [{ id: "todo", short: "Todo" }, ...TYPES].forEach((t) => {
+    [{ id: "todo", short: "Todo" }, ...TYPES.filter((t) => t.id !== "trabajo")].forEach((t) => {
       tc.append(h("button", { class: "chip", "aria-pressed": String(state.type === t.id), onclick: () => { state.type = t.id; renderChips(); renderBoard(); } },
         t.id !== "todo" ? h("span", { class: "sw", style: `background: var(--c-${t.id})` }) : null, t.id === "todo" ? "Todo" : t.label, counts[t.id] ? h("span", { class: "meta" }, String(counts[t.id])) : null));
     });
@@ -849,7 +893,9 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
     const digits = phoneDigits(l.contact);
     const expanded = state.expanded.has(l.id);
     const long = (l.description || "").length > 220;
-    const statusPill = !active ? h("span", { class: "status-pill" }, "Ya no disponible") : null;
+    const statusPill = !active
+      ? h("span", { class: "status-pill" }, l.status === "cerrado" ? "Ya no disponible" : "Vencido")
+      : l.autoExpire && left <= 5 ? h("span", { class: "status-pill soon" }, left <= 1 ? "Vence hoy" : `Vence en ${left} días`) : null;
 
     const actions = h("div", { class: "actions" });
     if (active && digits) {
@@ -869,12 +915,14 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
         h("span", { class: "meta" }, ago(l.createdAt), mine ? " · tu anuncio" : ""), statusPill),
       h("h3", { class: "title" }, l.title),
       (l.city || l.price) ? h("div", { class: "where" }, l.price ? h("span", { class: "price" }, l.price) : null, h("span", {}, [l.area, l.city].filter(Boolean).join(", "))) : null,
+      l.type === "trabajo" ? h("span", { class: "src-tag", style: "align-self:flex-start" }, "👥 De la comunidad") : null,
       gallery(l.photoIds),
       h("p", { class: "desc" + (long && !expanded ? " clamp" : "") }, l.description),
       long ? h("button", { class: "more", onclick: () => { expanded ? state.expanded.delete(l.id) : state.expanded.add(l.id); renderBoard(); } }, expanded ? "Ver menos" : "Ver todo") : null,
       !digits && l.contact ? h("p", { class: "contact-text" }, "Contacto: " + l.contact) : null,
       linksRow(l.links),
-      l.name ? h("p", { class: "meta" }, "Publica: " + l.name) : null,
+      l.onBehalfOf ? h("p", { class: "meta" }, "Compartido por Tu.turquía de parte de " + l.onBehalfOf)
+        : l.name ? h("p", { class: "meta" }, "Publica: " + l.name) : null,
       actions,
       active ? social(l) : null);
   }
@@ -890,15 +938,16 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
     const q = norm(state.q);
     const mine = state.listings.filter((l) => state.uid && l.authorId === state.uid && !isActive(l) && l.status !== "cerrado");
     const list = state.listings.filter(isActive)
+      .filter((l) => l.type !== "trabajo")
       .filter((l) => state.type === "todo" || l.type === state.type)
       .filter((l) => state.city === "Todas" || l.city === state.city || l.city === "Online / toda Turquía")
       .filter((l) => !q || norm([l.title, l.description, l.area, l.city, l.price].join(" ")).includes(q));
     updateCounts();
     feed.replaceChildren();
-    if (!state.listings.filter(isActive).length) {
+    if (!state.listings.filter((l) => isActive(l) && l.type !== "trabajo").length) {
       feed.append(h("div", { class: "empty" },
         h("h3", {}, "El tablón está listo para su primer anuncio"),
-        h("p", {}, "Trabajos, cuartos en alquiler, cosas en venta y servicios entre nosotras. Pega tu mensaje de WhatsApp y queda publicado en segundos."),
+        h("p", {}, "Cuartos en alquiler, cosas en venta y servicios entre nosotras. Pega tu mensaje de WhatsApp y queda publicado en segundos."),
         h("button", { class: "btn primary", onclick: () => requireMember(() => openPost(true), "publicar") }, "Probar con un mensaje de ejemplo")));
       feed.append(howStrip());
     } else if (!list.length) {
@@ -909,15 +958,18 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
       mine.forEach((l) => feed.append(listingCard(l)));
     }
     if (!state.deepLinked && location.hash.startsWith("#a-")) {
+      const target = state.listings.find((x) => "#a-" + x.id === location.hash);
+      if (target && target.type === "trabajo" && state.source !== "empleos") { setSource("empleos"); renderJobs(); return; }
       const el = document.getElementById(location.hash.slice(1));
       if (el) { state.deepLinked = true; el.scrollIntoView({ block: "center" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 3500); }
     }
   }
   function updateCounts() {
-    const c = state.listings.filter(isActive).length, j = state.jobs.filter(jobIsActive).length;
-    $("#nCommunity").textContent = c ? " " + c : "";
-    $("#nJobs").textContent = j ? " " + j : "";
-    $("#nBoard").textContent = c + j || "";
+    const act = state.listings.filter(isActive);
+    const c = act.filter((l) => l.type !== "trabajo").length;
+    const j = state.jobs.filter(jobIsActive).length + act.filter((l) => l.type === "trabajo").length;
+    $("#nCommunity").textContent = c ? c + (c === 1 ? " anuncio" : " anuncios") : "";
+    $("#nJobs").textContent = j ? j + (j === 1 ? " oferta" : " ofertas") : "";
   }
   function howStrip() {
     return h("div", { class: "how" },
@@ -959,7 +1011,7 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
     }
     return h("article", { class: "card", id: "j-" + j.id },
       h("div", { class: "card-top" },
-        h("span", { class: "curated" }, queued ? "Por revisar" : "Curado por Tu.turquía"),
+        h("span", { class: "curated" }, queued ? "Por revisar" : "🔍 Revisada por Tu.turquía"),
         h("span", { class: "meta" }, j.verifiedAt ? "Verificado el " + fmtDate(j.verifiedAt) : "", j.source ? " · " + j.source : "")),
       h("h3", { class: "title" }, j.title),
       h("div", { class: "where" }, h("span", { class: "price" }, j.company || ""), h("span", {}, [j.city, j.mode].filter(Boolean).join(" · "))),
@@ -981,22 +1033,31 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
       .filter((j) => state.jobCity === "Todas" || j.city === state.jobCity || j.mode === "remoto")
       .filter((j) => !state.noTurkish || !j.turkish || j.turkish === "No requerido" || j.turkish === "Básico")
       .filter((j) => !q || norm([j.title, j.company, j.summary, j.city, j.source].join(" ")).includes(q));
-    $("#nJobs").textContent = active.length ? " " + active.length : "";
+    const commJobs = state.listings.filter((l) => isActive(l) && l.type === "trabajo")
+      .filter((l) => state.jobCity === "Todas" || l.city === state.jobCity || l.city === "Online / toda Turquía")
+      .filter((l) => !q || norm([l.title, l.description, l.area, l.city].join(" ")).includes(q));
+    const showComm = state.mode === "todos" && !state.noTurkish;
+    updateCounts();
     feed.replaceChildren();
+    if (state.isOwner) feed.append(h("button", { class: "btn", style: "align-self:flex-start", onclick: openJob }, "+ Agregar oferta revisada (solo administradora)"));
     if (state.isOwner && state.queue.length) {
       const box = h("div", { class: "queue" }, h("h3", {}, `Por revisar (${state.queue.length})`), h("p", { class: "hint" }, "Solo tú ves esta lista. Revisa cada oferta y aprueba las que valen la pena."));
       state.queue.forEach((j) => box.append(jobCard(j, true)));
       feed.append(box);
     }
-    if (!active.length) {
+    const items = [
+      ...list.map((j) => ({ at: j.verifiedAt || j.createdAt || "", el: () => jobCard(j, false) })),
+      ...(showComm ? commJobs : []).map((l) => ({ at: l.createdAt || "", el: () => listingCard(l) })),
+    ].sort((a, b) => String(b.at).localeCompare(String(a.at)));
+    if (!active.length && !commJobs.length) {
       feed.append(h("div", { class: "empty" },
         h("h3", {}, "Pronto: ofertas donde tu español suma"),
         h("p", {}, "Cada semana se revisan ofertas en Turquía donde el español es requisito o ventaja: atención al cliente, enseñanza, traducción, turismo y trabajo remoto. Todas con enlace a la oferta original."),
         state.isOwner ? h("button", { class: "btn primary", onclick: openJob }, "Agregar el primer empleo") : null));
-    } else if (!list.length) {
+    } else if (!items.length) {
       feed.append(h("div", { class: "empty" }, h("h3", {}, "Nada con esos filtros"), h("p", {}, "Prueba con otra modalidad o ciudad.")));
-    } else list.forEach((j) => feed.append(jobCard(j, false)));
-    if (!state.deepLinked && location.hash.startsWith("#j-")) {
+    } else items.forEach((it) => feed.append(it.el()));
+    if (!state.deepLinked && (location.hash.startsWith("#j-") || location.hash.startsWith("#a-"))) {
       const el = document.getElementById(location.hash.slice(1));
       if (el) { state.deepLinked = true; el.scrollIntoView({ block: "center" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 3500); }
     }
@@ -1009,12 +1070,24 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
     state.source = s;
     $("#pane-community").hidden = s !== "comunidad";
     $("#pane-jobs").hidden = s !== "empleos";
-    $("#srcCommunity").setAttribute("aria-pressed", String(s === "comunidad"));
-    $("#srcJobs").setAttribute("aria-pressed", String(s === "empleos"));
-    updateFab();
+    updateFab(); updateNav();
+  }
+  function navKey() { return state.view === "recs" ? "recs" : state.source === "empleos" ? "jobs" : "community"; }
+  function updateNav() {
+    const k = state.view === "mod" ? "" : navKey();
+    document.querySelectorAll(".nav-card").forEach((c) => {
+      const on = c.dataset.nav === k;
+      c.classList.toggle("on", on);
+      c.querySelector(".nav-main").setAttribute("aria-selected", String(on));
+    });
+    try { if (k) localStorage.setItem("tt_nav", k); } catch {}
+  }
+  function goNav(k) {
+    if (k === "recs") setView("recs");
+    else { setView("board"); setSource(k === "jobs" ? "empleos" : "comunidad"); }
   }
   function updateFab() {
-    const label = state.view === "recs" ? "Recomendar a alguien" : state.source === "empleos" && state.isOwner ? "Agregar empleo curado" : "Publicar anuncio";
+    const label = state.view === "recs" ? "Recomendar a alguien" : state.source === "empleos" ? "Publicar oferta de trabajo" : "Publicar anuncio";
     $("#fabLabel").textContent = label;
   }
   function jobFromForm() {
@@ -1124,7 +1197,7 @@ Oferta:
       .filter((r) => state.recCity === "Todas" || r.city === state.recCity)
       .filter((r) => !q || norm([r.name, r.why, r.category, r.city, r.languages].join(" ")).includes(q))
       .sort((a, b) => vouchersOf(b).length - vouchersOf(a).length);
-    $("#nRecs").textContent = state.recs.length || "";
+    $("#nRecs").textContent = state.recs.length ? state.recs.length + (state.recs.length === 1 ? " persona" : " personas") : "";
     feed.replaceChildren();
     if (!state.recs.length) {
       feed.append(h("div", { class: "empty" },
@@ -1173,11 +1246,9 @@ Oferta:
     $("#view-recs").hidden = v !== "recs";
     $("#view-mod").hidden = v !== "mod";
     $("#story").hidden = v !== "board";
-    document.querySelectorAll(".tab").forEach((t) => t.setAttribute("aria-selected", String(t.dataset.view === v)));
-    updateFab();
+    updateFab(); updateNav();
     $(".fab-bar").hidden = v === "mod";
     if (v === "mod") renderMod();
-    try { localStorage.setItem("tt_view", v === "mod" ? "board" : v); } catch {}
   }
 
   /* ---------- sheets ---------- */
@@ -1194,7 +1265,8 @@ Oferta:
     return true;
   }
 
-  function openPost(example) {
+  function openPost(example, presetType) {
+    state.presetType = presetType || null;
     state.editingId = null;
     $("#postTitle").textContent = "Publicar anuncio"; $("#publishBtn").textContent = "Publicar anuncio"; $("#backToPaste").hidden = false;
     $("#stepPaste").hidden = false; $("#stepForm").hidden = true; $("#pasteErr").hidden = true;
@@ -1209,7 +1281,7 @@ Oferta:
   function showForm(data, fromAi) {
     $("#stepPaste").hidden = true; $("#stepForm").hidden = false; $("#formErr").hidden = true;
     $("#aiNote").hidden = !fromAi;
-    state.formType = TYPES.some((t) => t.id === data.type) ? data.type : "venta";
+    state.formType = TYPES.some((t) => t.id === data.type) ? data.type : (state.presetType || "venta");
     renderTypePick();
     $("#fTitle").value = data.title || "";
     $("#fDesc").value = data.description || $("#pasteBox").value || "";
@@ -1218,6 +1290,9 @@ Oferta:
     $("#fPrice").value = data.price || "";
     $("#fName").value = data.name || (state.member && state.member.name) || "";
     $("#fContact").value = data.contact || "";
+    $("#onBehalfBox").hidden = !state.isOwner;
+    $("#fOnBehalf").value = data.onBehalfOf || "";
+    $("#fPermiso").checked = !!data.onBehalfOf;
     state.formPhotos = []; renderThumbs();
     $("#fLinks").value = parseLinks(Array.isArray(data.links) ? data.links.join("\n") : "").join("\n");
     $("#fTitle").focus();
@@ -1407,6 +1482,8 @@ Mensaje:
     const title = $("#fTitle").value.trim(), description = $("#fDesc").value.trim(), contact = $("#fContact").value.trim();
     const ferr = $("#formErr");
     if (!title || !description || !contact) { ferr.textContent = "Faltan el título, la descripción o el contacto."; ferr.hidden = false; return; }
+    const onBehalf = state.isOwner ? $("#fOnBehalf").value.trim() : "";
+    if (onBehalf && !$("#fPermiso").checked) { ferr.textContent = "Marca la casilla de permiso para publicar en nombre de otra persona."; ferr.hidden = false; return; }
     const now = new Date();
     const editing = state.editingId ? state.listings.find((x) => x.id === state.editingId) : null;
     const id = editing ? editing.id : newId();
@@ -1415,6 +1492,13 @@ Mensaje:
       city: $("#fCity").value, area: $("#fArea").value.trim(), price: $("#fPrice").value.trim(), name: $("#fName").value.trim(),
       links: parseLinks($("#fLinks").value), photoIds: state.formPhotos.map((_, i) => id + "-p" + i),
     };
+    // Publicado en nombre de otra persona: solo los de Trabajo vencen solos a los 30 días.
+    if (state.isOwner) {
+      fields.onBehalfOf = onBehalf;
+      if (onBehalf) fields.name = onBehalf;
+      fields.autoExpire = !!onBehalf && state.formType === "trabajo";
+      if (fields.autoExpire && (!editing || !editing.autoExpire)) fields.expiresAt = new Date(now.getTime() + LIFE_DAYS * DAY).toISOString();
+    }
     const btn = $("#publishBtn"); btn.disabled = true;
     try {
       for (let i = 0; i < state.formPhotos.length; i++) {
@@ -1664,10 +1748,8 @@ Mensaje:
   });
 
   /* ---------- wiring ---------- */
-  document.querySelectorAll(".tab").forEach((t) => t.addEventListener("click", () => setView(t.dataset.view)));
-  $("#fab").addEventListener("click", () => (state.view === "recs" ? requireMember(openRec, "recomendar") : state.source === "empleos" && state.isOwner ? openJob() : requireMember(() => openPost(), "publicar")));
-  $("#srcCommunity").addEventListener("click", () => setSource("comunidad"));
-  $("#srcJobs").addEventListener("click", () => setSource("empleos"));
+  document.querySelectorAll(".nav-card").forEach((c) => c.querySelector(".nav-main").addEventListener("click", () => goNav(c.dataset.nav)));
+  $("#fab").addEventListener("click", () => (state.view === "recs" ? requireMember(openRec, "recomendar") : state.source === "empleos" ? requireMember(() => openPost(false, "trabajo"), "publicar") : requireMember(() => openPost(), "publicar")));
   fillCitySelect($("#jobCity"), true); fillCitySelect($("#jCity2"), false);
   LEVELS.forEach((l) => { $("#jEnglish").append(h("option", { value: l }, l)); $("#jTurkish").append(h("option", { value: l }, l)); });
   PERMITS.forEach((p) => $("#jPermit").append(h("option", { value: p }, p)));
@@ -1677,7 +1759,7 @@ Mensaje:
   renderModeChips();
   if (location.hash.startsWith("#j-")) setSource("empleos");
   $("#storyPost").addEventListener("click", () => requireMember(() => openPost(), "publicar"));
-  $("#storyJobs").addEventListener("click", () => { setView("board"); setSource("empleos"); $("#view-board").scrollIntoView({ behavior: "smooth", block: "start" }); });
+  $("#storyJobs").addEventListener("click", () => { goNav("jobs"); $(".nav-q").scrollIntoView({ behavior: "smooth", block: "start" }); });
   // Las burbujas ya se ven completas; al aparecer en pantalla solo dan un pequeño salto.
   if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
     const io = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("pop"); io.unobserve(en.target); } }), { threshold: 0.6 });
@@ -1737,7 +1819,10 @@ Mensaje:
   $("#searchBoard").addEventListener("input", (e) => { state.q = e.target.value; renderBoard(); });
   $("#searchRecs").addEventListener("input", (e) => { state.rq = e.target.value; renderRecs(); });
   try { const c = localStorage.getItem("tt_city"); if (c && (c === "Todas" || CITIES.includes(c))) { state.city = c; $("#cityFilter").value = c; } } catch {}
-  try { const v = localStorage.getItem("tt_view"); if (v === "recs") setView("recs"); } catch {}
+  // Primera visita: Trabajo. Después, la última sección que viste.
+  { let k = "jobs"; try { const v = localStorage.getItem("tt_nav"); if (["jobs", "community", "recs"].includes(v)) k = v; } catch {}
+    if (location.hash.startsWith("#j-")) k = "jobs"; else if (location.hash.startsWith("#a-")) k = "community";
+    goNav(k); }
   renderChips();
 
   /* ---------- capabilities ---------- */
