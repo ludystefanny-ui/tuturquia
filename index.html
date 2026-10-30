@@ -835,6 +835,19 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
   function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => (t.hidden = true), 2600); }
   function newId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
   function typeLabel(id) { return (TYPES.find((t) => t.id === id) || TYPES[2]).short; }
+  // "hoy", "ayer", "hace 3 días", "la semana pasada", "hace 2 semanas", "hace más de un mes"
+  function whenPublished(iso) {
+    const t = new Date(iso).getTime(); if (!t) return "";
+    const d0 = new Date(); d0.setHours(0, 0, 0, 0);
+    const d1 = new Date(t); d1.setHours(0, 0, 0, 0);
+    const days = Math.round((d0 - d1) / DAY);
+    if (days <= 0) return "hoy";
+    if (days === 1) return "ayer";
+    if (days < 7) return "hace " + days + " días";
+    if (days < 14) return "hace 1 semana";
+    if (days < 30) return "hace " + Math.floor(days / 7) + " semanas";
+    return "hace más de un mes";
+  }
   function ago(iso) {
     const d = Date.now() - new Date(iso).getTime();
     if (d < 3600000) return "hace " + Math.max(1, Math.round(d / 60000)) + " min";
@@ -912,7 +925,7 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
     return h("article", { class: "card" + (active ? "" : " closed"), id: "a-" + l.id },
       h("div", { class: "card-top" },
         h("span", { class: "cat " + l.type }, typeLabel(l.type)),
-        h("span", { class: "meta" }, ago(l.createdAt), mine ? " · tu anuncio" : ""), statusPill),
+        h("span", { class: "meta" }, "Publicado " + whenPublished(l.createdAt), mine ? " · tu anuncio" : ""), statusPill),
       h("h3", { class: "title" }, l.title),
       (l.city || l.price) ? h("div", { class: "where" }, l.price ? h("span", { class: "price" }, l.price) : null, h("span", {}, [l.area, l.city].filter(Boolean).join(", "))) : null,
       l.type === "trabajo" ? h("span", { class: "src-tag", style: "align-self:flex-start" }, "👥 De la comunidad") : null,
@@ -1012,7 +1025,7 @@ footer { margin-top: 32px; font-size: .8rem; color: var(--muted); text-align: ce
     return h("article", { class: "card", id: "j-" + j.id },
       h("div", { class: "card-top" },
         h("span", { class: "curated" }, queued ? "Por revisar" : "🔍 Revisada por Tu.turquía"),
-        h("span", { class: "meta" }, j.verifiedAt ? "Verificado el " + fmtDate(j.verifiedAt) : "", j.source ? " · " + j.source : "")),
+        h("span", { class: "meta" }, (queued ? "Encontrada " : "Publicada ") + whenPublished(queued ? (j.verifiedAt || j.createdAt) : (j.createdAt || j.verifiedAt)), j.source ? " · " + j.source : "")),
       h("h3", { class: "title" }, j.title),
       h("div", { class: "where" }, h("span", { class: "price" }, j.company || ""), h("span", {}, [j.city, j.mode].filter(Boolean).join(" · "))),
       h("div", { class: "pills" },
